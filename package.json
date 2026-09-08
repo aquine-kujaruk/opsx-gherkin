@@ -1,6 +1,6 @@
 {
   "name": "opsx-gherkin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Deterministic OpenSpec and Gherkin conversion with a self-contained syntax compatibility skill.",
   "repository": {
     "type": "git",

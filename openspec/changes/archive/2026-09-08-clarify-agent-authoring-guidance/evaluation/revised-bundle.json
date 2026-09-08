@@ -1,0 +1,12 @@
+{
+  "skills/opsx-gherkin/SKILL.md": "6d585d2e045c1cf08895d0b488b5bd2c72260105f17b04070cf262c13814701b",
+  "skills/opsx-gherkin/references/OPENSPEC_MDG_PROFILE.feature.md": "122765185391deb149f938b43f2f45da179eaf84b08b6bb9699bfcd94069b72f",
+  "skills/opsx-gherkin/references/examples/account.feature": "7cd40327a11cf918f2422f34449a42e2f385a8cf34a8f426e369dcf2ce31c223",
+  "skills/opsx-gherkin/references/examples/account.feature.md": "56bc8173d8bf4db984c621bc38db4e50d0d4a5b0be196543d71f31d52f5dc789",
+  "skills/opsx-gherkin/references/examples/account.openspec.md": "e73ae51e0ec89e81baa38a2e0131feee6250130740e16a19ed1e5204a9b0fe91",
+  "skills/opsx-gherkin/references/examples/authentication-delta.feature.md": "aa1ebc9853983f2cb435fcfa8b9be3a9cb6116577f9b82ec8ff737a0c1c6bd91",
+  "skills/opsx-gherkin/references/examples/authentication-delta.openspec.md": "1f952060114f4364f86c754fd1640ffd0c6d99cb7a40db21375623cfa4aedb3b",
+  "skills/opsx-gherkin/references/examples/minimal.feature": "7e3101df1bd20f2f73db46d8510029e2d9fce8bac23372d25e0d3ffdd7f2ac41",
+  "skills/opsx-gherkin/references/examples/minimal.feature.md": "0b1589f289fba7757af18bb61d94792242459d8e783c4b8c48045614cdf9eaa3",
+  "skills/opsx-gherkin/references/examples/minimal.openspec.md": "6ce719f27701393472801ff288511f17cec55ddf2831502fcdb3e78e304a0c43"
+}

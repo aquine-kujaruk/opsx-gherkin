@@ -1,0 +1,54 @@
+{
+  "original_revision": "3fb0c4568c28f7c1f8abf75d44d1f58a025349eb",
+  "original_bundle_matches_revision": true,
+  "original_bundle_sha256": {
+    "skills/opsx-gherkin/SKILL.md": "94115921711911ee4d33341da2a12dffd2e238bdc3cdc8841cc048aa4e9c1753",
+    "skills/opsx-gherkin/references/OPENSPEC_MDG_PROFILE.feature.md": "5a80d2c800787bb75dda1462daa153148d99e9d742ad65f3393aec603b733e6e",
+    "skills/opsx-gherkin/references/examples/account.feature": "7cd40327a11cf918f2422f34449a42e2f385a8cf34a8f426e369dcf2ce31c223",
+    "skills/opsx-gherkin/references/examples/account.feature.md": "56bc8173d8bf4db984c621bc38db4e50d0d4a5b0be196543d71f31d52f5dc789",
+    "skills/opsx-gherkin/references/examples/account.openspec.md": "e73ae51e0ec89e81baa38a2e0131feee6250130740e16a19ed1e5204a9b0fe91",
+    "skills/opsx-gherkin/references/examples/authentication-delta.feature.md": "aa1ebc9853983f2cb435fcfa8b9be3a9cb6116577f9b82ec8ff737a0c1c6bd91",
+    "skills/opsx-gherkin/references/examples/authentication-delta.openspec.md": "1f952060114f4364f86c754fd1640ffd0c6d99cb7a40db21375623cfa4aedb3b"
+  },
+  "execution": {
+    "method": "collaboration subagents; fork_turns=none; no model or reasoning override",
+    "settings": "Inherited parent model and reasoning. Exact runtime identifiers, temperature, seed, and token accounting not exposed. Same requested configuration in both phases.",
+    "isolation": "Fresh agent per case and phase. Only supplied skill snapshot, prompt and CLI; exclude conversation, planning docs, other outputs and repository source. Instruction-scoped filesystem access, not sandbox-enforced.",
+    "workspace": "/tmp/opsx-guidance-eval-Q63g6p",
+    "run_order": "Original three runs before guidance edits; revised three after. At most three concurrent evaluators.",
+    "evidence": "Immutable draft.feature.md before validation; final.feature.md and generated final.openspec.md/final.feature separately. Log commands, exit codes, diagnostics and repairs. Parent reviews semantic rubric."
+  },
+  "cases": [
+    {
+      "id": "minimal",
+      "prompt": "Write a Markdown with Gherkin main specification for a library reservation service. An active member can reserve an available book. Cover exactly one behavior with one Rule and one Scenario: member M-17 is active, book B-42 is available, M-17 reserves B-42, and the reservation is confirmed for M-17 and B-42. Include a meaningful Feature description. Deliver the MDG document and its equivalent OpenSpec and plain Gherkin documents.",
+      "rubric": [
+        "Main spec; one normative Rule and one Scenario; meaningful Feature description.",
+        "Active M-17 and available B-42 are preconditions; reservation action and confirmation identify both values.",
+        "No converter-domain behavior or unrequested descriptive tags.",
+        "Official validation and supported conversions succeed; one expanded case; normalized model preserved."
+      ]
+    },
+    {
+      "id": "arguments",
+      "prompt": "Write a Markdown with Gherkin main specification for importing library catalog copies. Imports with a positive copies count are accepted; zero copies are rejected. Use one Rule and one Scenario Outline with two named Examples groups: Accepted has copies 1 and 2, both decision accepted; Rejected has copies 0 and decision rejected. In that outline, include a Given step with a two-column Data Table (field, value) holding shelf = A|B and source = C:\\catalog (one literal backslash). Include a When step with a typed JSON Doc String containing copies as the numeric <copies> placeholder, shelf as the string A|B, and source as the string C:\\catalog (one decoded backslash). The Then step checks <decision>. Preserve all literal values. Deliver the MDG document and its equivalent OpenSpec and plain Gherkin documents.",
+      "rubric": [
+        "One normative Rule, one Outline, two named Examples groups, three expanded cases: 1 accepted, 2 accepted, 0 rejected.",
+        "Data Table has header field/value and exactly shelf=A|B, source=C:\\catalog with one decoded backslash.",
+        "JSON media type; expanded Doc Strings parse with numeric copies, shelf=A|B, source=C:\\catalog with one decoded backslash.",
+        "Steps cover import preconditions/action/outcomes and all placeholders bind; no converter-domain behavior.",
+        "Official validation and supported conversions succeed; normalized model preserved."
+      ]
+    },
+    {
+      "id": "delta",
+      "prompt": "Write a Markdown with Gherkin delta for a library circulation service with these operations, in this order: ADDED requirement \"Renew a loan\": an active member can renew a loan once; Scenario uses member M-17 and loan L-8 with zero previous renewals and confirms the new renewal count is 1. MODIFIED requirement \"Reserve an available book\": an active member with fewer than 3 current reservations can reserve an available book; Scenario uses M-17 with 2 reservations and book B-42, then confirms the reservation and a total of 3. REMOVED requirement \"Fax reservation\". RENAMED requirement \"Loan audit\" to \"Circulation audit\". Deliver the MDG delta and its equivalent OpenSpec and plain Gherkin documents.",
+      "rubric": [
+        "Delta Feature marker and exactly one correct operation marker per Rule; order ADDED, MODIFIED, REMOVED, RENAMED.",
+        "Added and modified requirements normative; two Scenarios preserve supplied identifiers, eligibility and numeric outcomes.",
+        "Removal retains only Fax reservation identity; rename FROM Loan audit TO Circulation audit; no unsupported extra content.",
+        "Official validation and supported conversions succeed; two expanded cases; normalized model preserved."
+      ]
+    }
+  ]
+}

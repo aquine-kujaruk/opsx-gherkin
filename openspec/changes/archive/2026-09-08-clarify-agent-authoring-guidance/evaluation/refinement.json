@@ -1,0 +1,205 @@
+{
+  "date": "2026-09-08",
+  "editor": {
+    "agent": "aligned_editor",
+    "initial": "changes required",
+    "correctionCycles": 1,
+    "recheck": "ready",
+    "findings": [
+      "Restore both conversion directions in groups, argument and delta-order examples",
+      "Remove Markdown backticks from native example placeholders"
+    ],
+    "resolved": true
+  },
+  "features": [
+    {
+      "file": "references/OPENSPEC_MDG_PROFILE.feature.md",
+      "valid": true,
+      "cases": 35,
+      "allCodeTargets": true,
+      "actionsPerCase": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "references/profile-access.feature.md",
+      "valid": true,
+      "cases": 3,
+      "allCodeTargets": true,
+      "actionsPerCase": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "references/examples/account.feature.md",
+      "valid": true,
+      "cases": 5,
+      "allCodeTargets": true,
+      "actionsPerCase": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "file": "references/examples/authentication-delta.feature.md",
+      "valid": true,
+      "cases": 2,
+      "allCodeTargets": true,
+      "actionsPerCase": [
+        1,
+        1
+      ]
+    },
+    {
+      "file": "references/examples/minimal.feature.md",
+      "valid": true,
+      "cases": 1,
+      "allCodeTargets": true,
+      "actionsPerCase": [
+        1
+      ]
+    }
+  ],
+  "parserProbe": {
+    "method": "Parser(AstBuilder, GherkinInMarkdownTokenMatcher) then compile; installed dependencies; read-only",
+    "observations": [
+      {
+        "repository": "/home/eaquine/Documents/dev/personal/opsx-gherkin",
+        "gherkinVersion": "42.0.1",
+        "separator": false,
+        "source": "# Feature: Preserve table examples\n\n### Scenario Outline: Return <value>\n\n* Given a record:\n\n  | field | value |\n  | label | sample |\n* When <value> is supplied\n* Then <value> is returned\n\n#### Examples: Values\n\n  | value |\n  | alpha |\n  | beta |\n",
+        "cases": 2,
+        "values": [
+          "alpha is supplied",
+          "beta is supplied"
+        ],
+        "table": [
+          [
+            "field",
+            "value"
+          ],
+          [
+            "label",
+            "sample"
+          ]
+        ]
+      },
+      {
+        "repository": "/home/eaquine/Documents/dev/personal/opsx-gherkin",
+        "gherkinVersion": "42.0.1",
+        "separator": true,
+        "source": "# Feature: Preserve table examples\n\n### Scenario Outline: Return <value>\n\n* Given a record:\n\n  | field | value |\n  | --- | --- |\n  | label | sample |\n* When <value> is supplied\n* Then <value> is returned\n\n#### Examples: Values\n\n  | value |\n  | --- |\n  | alpha |\n  | beta |\n",
+        "cases": 2,
+        "values": [
+          "alpha is supplied",
+          "beta is supplied"
+        ],
+        "table": [
+          [
+            "field",
+            "value"
+          ],
+          [
+            "label",
+            "sample"
+          ]
+        ]
+      },
+      {
+        "repository": "/home/eaquine/Documents/dev/personal/feat2test",
+        "gherkinVersion": "42.0.1",
+        "separator": false,
+        "source": "# Feature: Preserve table examples\n\n### Scenario Outline: Return <value>\n\n* Given a record:\n\n  | field | value |\n  | label | sample |\n* When <value> is supplied\n* Then <value> is returned\n\n#### Examples: Values\n\n  | value |\n  | alpha |\n  | beta |\n",
+        "cases": 2,
+        "values": [
+          "alpha is supplied",
+          "beta is supplied"
+        ],
+        "table": [
+          [
+            "field",
+            "value"
+          ],
+          [
+            "label",
+            "sample"
+          ]
+        ]
+      },
+      {
+        "repository": "/home/eaquine/Documents/dev/personal/feat2test",
+        "gherkinVersion": "42.0.1",
+        "separator": true,
+        "source": "# Feature: Preserve table examples\n\n### Scenario Outline: Return <value>\n\n* Given a record:\n\n  | field | value |\n  | --- | --- |\n  | label | sample |\n* When <value> is supplied\n* Then <value> is returned\n\n#### Examples: Values\n\n  | value |\n  | --- |\n  | alpha |\n  | beta |\n",
+        "cases": 2,
+        "values": [
+          "alpha is supplied",
+          "beta is supplied"
+        ],
+        "table": [
+          [
+            "field",
+            "value"
+          ],
+          [
+            "label",
+            "sample"
+          ]
+        ]
+      }
+    ]
+  },
+  "bundleSha256": {
+    "SKILL.md": "f2ac093ccffddb548a045bca9995dd381871b48953f8ca30d1ff28647a0b627e",
+    "references/OPENSPEC_MDG_PROFILE.feature.md": "d09848931ee13876db6814f99d681d2cfed8468f346bddb6213a6ecd1e26b00f",
+    "references/profile-access.feature.md": "9292c00471c970d248be019d7c0a3fbc3817ef9b9dca7fb0862d97b7473b040e",
+    "references/examples/account.feature": "e71b3508f59f2ef3e36fae88e610f8a51ed77d3330099918139e9d555574ae41",
+    "references/examples/account.feature.md": "60bc1ae0538b76cd748b05f2f712833c8156f3b1b553cf5225de1d7b50ed5b51",
+    "references/examples/account.openspec.md": "e896b27248b50a5c87b89822427dbc3916a0a5ec8385def907dc2d6442548654",
+    "references/examples/authentication-delta.feature": "ef0928aaceb4660209303c37e3a0fdabe1c83416e2970d87f48b3c4e762f1d06",
+    "references/examples/authentication-delta.feature.md": "43f0a2ada3ca458a29e318de3c086601e53549908a68fb233be01275cadfa03b",
+    "references/examples/authentication-delta.openspec.md": "8c6ddc7502965183de23cfce3971dec3384476155471ace494ea636f0be98bf4",
+    "references/examples/minimal.feature": "9d3286a18b071c121fd5808438c6e44380eec36c90538e54a2a82bd0992892fa",
+    "references/examples/minimal.feature.md": "0276c62d071947bf717cd3ec2232857e40c576d56100008168ab96a2f3262bd6",
+    "references/examples/minimal.openspec.md": "25f575735817428acf18fe7b9f38ae2ec4903263eac0e07b030e0cdc519eded6"
+  }
+}

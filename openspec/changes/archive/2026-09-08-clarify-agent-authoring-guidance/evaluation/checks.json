@@ -1,0 +1,2286 @@
+[
+  {
+    "phase": "original",
+    "name": "minimal",
+    "version": "draft",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/minimal/draft.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/minimal/draft.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/minimal/draft.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-txAykm/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "openspec",
+          "/tmp/opsx-evidence-check-txAykm/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"openspec\",\n  \"file\": \"/tmp/opsx-evidence-check-txAykm/case.openspec.md\",\n  \"valid\": true,\n  \"issues\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-txAykm/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-txAykm/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-txAykm/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-txAykm/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-txAykm/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-txAykm/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "One normative Rule, one Scenario, meaningful description, no incidental tags",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Library reservations",
+      "description": "  Allow active library members to reserve available books and receive confirmation identifying the member and book.",
+      "tags": [],
+      "rules": [
+        {
+          "name": "Active members can reserve available books",
+          "description": "    The library reservation service SHALL confirm a reservation when an active member reserves an available book.",
+          "tags": []
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "An active member reserves an available book",
+          "keyword": "Scenario",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "An active member reserves an available book",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "book B-42 is available"
+            },
+            {
+              "text": "member M-17 reserves book B-42"
+            },
+            {
+              "text": "the reservation is confirmed for member M-17 and book B-42"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "original",
+    "name": "minimal",
+    "version": "final",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/minimal/final.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/minimal/final.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/minimal/final.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-InYhKl/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "openspec",
+          "/tmp/opsx-evidence-check-InYhKl/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"openspec\",\n  \"file\": \"/tmp/opsx-evidence-check-InYhKl/case.openspec.md\",\n  \"valid\": true,\n  \"issues\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-InYhKl/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-InYhKl/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-InYhKl/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-InYhKl/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-InYhKl/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-InYhKl/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "One normative Rule, one Scenario, meaningful description, no incidental tags",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Library reservations",
+      "description": "  Allow active library members to reserve available books and receive confirmation identifying the member and book.",
+      "tags": [],
+      "rules": [
+        {
+          "name": "Active members can reserve available books",
+          "description": "    The library reservation service SHALL confirm a reservation when an active member reserves an available book.",
+          "tags": []
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "An active member reserves an available book",
+          "keyword": "Scenario",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "An active member reserves an available book",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "book B-42 is available"
+            },
+            {
+              "text": "member M-17 reserves book B-42"
+            },
+            {
+              "text": "the reservation is confirmed for member M-17 and book B-42"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "original",
+    "name": "arguments",
+    "version": "draft",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/arguments/draft.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/arguments/draft.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/arguments/draft.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-5kdQD1/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "openspec",
+          "/tmp/opsx-evidence-check-5kdQD1/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"openspec\",\n  \"file\": \"/tmp/opsx-evidence-check-5kdQD1/case.openspec.md\",\n  \"valid\": true,\n  \"issues\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-5kdQD1/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-5kdQD1/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-5kdQD1/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-5kdQD1/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-5kdQD1/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-5kdQD1/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "One Outline and two correctly bound Examples groups",
+        "passed": true
+      },
+      {
+        "label": "Decoded table/JSON values and outcomes in all three expanded cases",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Library catalog copy imports",
+      "description": "  Import copies into the library catalog with a clear decision for each requested copies count.",
+      "tags": [],
+      "rules": [
+        {
+          "name": "Imports require a positive copies count",
+          "description": "    The system SHALL accept imports with a positive copies count and SHALL reject imports with zero copies.",
+          "tags": []
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Decide whether to import catalog copies",
+          "keyword": "Scenario Outline",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Decide whether to import catalog copies",
+          "steps": [
+            {
+              "text": "the catalog import has these fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 1,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is accepted"
+            }
+          ]
+        },
+        {
+          "name": "Decide whether to import catalog copies",
+          "steps": [
+            {
+              "text": "the catalog import has these fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 2,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is accepted"
+            }
+          ]
+        },
+        {
+          "name": "Decide whether to import catalog copies",
+          "steps": [
+            {
+              "text": "the catalog import has these fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 0,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is rejected"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "original",
+    "name": "arguments",
+    "version": "final",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/arguments/final.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/arguments/final.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/arguments/final.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-Elza9l/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "openspec",
+          "/tmp/opsx-evidence-check-Elza9l/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"openspec\",\n  \"file\": \"/tmp/opsx-evidence-check-Elza9l/case.openspec.md\",\n  \"valid\": true,\n  \"issues\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-Elza9l/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-Elza9l/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-Elza9l/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-Elza9l/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-Elza9l/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-Elza9l/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "One Outline and two correctly bound Examples groups",
+        "passed": true
+      },
+      {
+        "label": "Decoded table/JSON values and outcomes in all three expanded cases",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Library catalog copy imports",
+      "description": "  Import copies into the library catalog with a clear decision for each requested copies count.",
+      "tags": [],
+      "rules": [
+        {
+          "name": "Imports require a positive copies count",
+          "description": "    The system SHALL accept imports with a positive copies count and SHALL reject imports with zero copies.",
+          "tags": []
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Decide whether to import catalog copies",
+          "keyword": "Scenario Outline",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Decide whether to import catalog copies",
+          "steps": [
+            {
+              "text": "the catalog import has these fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 1,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is accepted"
+            }
+          ]
+        },
+        {
+          "name": "Decide whether to import catalog copies",
+          "steps": [
+            {
+              "text": "the catalog import has these fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 2,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is accepted"
+            }
+          ]
+        },
+        {
+          "name": "Decide whether to import catalog copies",
+          "steps": [
+            {
+              "text": "the catalog import has these fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 0,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is rejected"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "original",
+    "name": "delta",
+    "version": "draft",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/delta/draft.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/delta/draft.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/delta/draft.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-qYQsyP/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "OpenSpec Validator.validateChangeDeltaSpecs(strict=true)",
+        "exit": 0,
+        "report": {
+          "valid": true,
+          "issues": [],
+          "summary": {
+            "errors": 0,
+            "warnings": 0,
+            "info": 0
+          }
+        }
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-qYQsyP/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-qYQsyP/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-qYQsyP/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-qYQsyP/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-qYQsyP/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-qYQsyP/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "All four operation identities and content boundaries",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Library circulation delta",
+      "description": "  Update loan renewal and book reservation behavior and circulation audit naming.",
+      "tags": [
+        "@openspec-delta"
+      ],
+      "rules": [
+        {
+          "name": "Renew a loan",
+          "description": "    The library circulation service SHALL allow an active member to renew a loan once.",
+          "tags": [
+            "@openspec-added"
+          ]
+        },
+        {
+          "name": "Reserve an available book",
+          "description": "    The library circulation service SHALL allow an active member with fewer than 3 current reservations to reserve an available book.",
+          "tags": [
+            "@openspec-modified"
+          ]
+        },
+        {
+          "name": "Fax reservation",
+          "description": "",
+          "tags": [
+            "@openspec-removed"
+          ]
+        },
+        {
+          "name": "Rename requirement",
+          "description": "    FROM: ### Requirement: Loan audit\n    TO: ### Requirement: Circulation audit",
+          "tags": [
+            "@openspec-renamed"
+          ]
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Renew a loan with zero previous renewals",
+          "keyword": "Scenario",
+          "tags": []
+        },
+        {
+          "name": "Reserve an available book with two current reservations",
+          "keyword": "Scenario",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Renew a loan with zero previous renewals",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "loan L-8 has 0 previous renewals"
+            },
+            {
+              "text": "member M-17 renews loan L-8"
+            },
+            {
+              "text": "loan L-8 is renewed"
+            },
+            {
+              "text": "the renewal count for loan L-8 is 1"
+            }
+          ]
+        },
+        {
+          "name": "Reserve an available book with two current reservations",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "member M-17 has 2 current reservations"
+            },
+            {
+              "text": "book B-42 is available"
+            },
+            {
+              "text": "member M-17 reserves book B-42"
+            },
+            {
+              "text": "a reservation for book B-42 is confirmed for member M-17"
+            },
+            {
+              "text": "member M-17 has 3 current reservations"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "original",
+    "name": "delta",
+    "version": "final",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/delta/final.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/delta/final.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/original/delta/final.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-jUw07O/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "OpenSpec Validator.validateChangeDeltaSpecs(strict=true)",
+        "exit": 0,
+        "report": {
+          "valid": true,
+          "issues": [],
+          "summary": {
+            "errors": 0,
+            "warnings": 0,
+            "info": 0
+          }
+        }
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-jUw07O/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-jUw07O/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-jUw07O/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-jUw07O/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-jUw07O/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-jUw07O/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "All four operation identities and content boundaries",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Library circulation delta",
+      "description": "  Update loan renewal and book reservation behavior and circulation audit naming.",
+      "tags": [
+        "@openspec-delta"
+      ],
+      "rules": [
+        {
+          "name": "Renew a loan",
+          "description": "    The library circulation service SHALL allow an active member to renew a loan once.",
+          "tags": [
+            "@openspec-added"
+          ]
+        },
+        {
+          "name": "Reserve an available book",
+          "description": "    The library circulation service SHALL allow an active member with fewer than 3 current reservations to reserve an available book.",
+          "tags": [
+            "@openspec-modified"
+          ]
+        },
+        {
+          "name": "Fax reservation",
+          "description": "",
+          "tags": [
+            "@openspec-removed"
+          ]
+        },
+        {
+          "name": "Rename requirement",
+          "description": "    FROM: ### Requirement: Loan audit\n    TO: ### Requirement: Circulation audit",
+          "tags": [
+            "@openspec-renamed"
+          ]
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Renew a loan with zero previous renewals",
+          "keyword": "Scenario",
+          "tags": []
+        },
+        {
+          "name": "Reserve an available book with two current reservations",
+          "keyword": "Scenario",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Renew a loan with zero previous renewals",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "loan L-8 has 0 previous renewals"
+            },
+            {
+              "text": "member M-17 renews loan L-8"
+            },
+            {
+              "text": "loan L-8 is renewed"
+            },
+            {
+              "text": "the renewal count for loan L-8 is 1"
+            }
+          ]
+        },
+        {
+          "name": "Reserve an available book with two current reservations",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "member M-17 has 2 current reservations"
+            },
+            {
+              "text": "book B-42 is available"
+            },
+            {
+              "text": "member M-17 reserves book B-42"
+            },
+            {
+              "text": "a reservation for book B-42 is confirmed for member M-17"
+            },
+            {
+              "text": "member M-17 has 3 current reservations"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "revised",
+    "name": "minimal",
+    "version": "draft",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/minimal/draft.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/minimal/draft.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/minimal/draft.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-DSsaeX/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "openspec",
+          "/tmp/opsx-evidence-check-DSsaeX/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"openspec\",\n  \"file\": \"/tmp/opsx-evidence-check-DSsaeX/case.openspec.md\",\n  \"valid\": true,\n  \"issues\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-DSsaeX/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-DSsaeX/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-DSsaeX/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-DSsaeX/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-DSsaeX/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-DSsaeX/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "One normative Rule, one Scenario, meaningful description, no incidental tags",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Library book reservations",
+      "description": "  Enable active library members to reserve available books and receive confirmation identifying the member and book.",
+      "tags": [],
+      "rules": [
+        {
+          "name": "Active members can reserve available books",
+          "description": "    The reservation service SHALL confirm a reservation for an active member and an available book when that member reserves the book.",
+          "tags": []
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Active member reserves an available book",
+          "keyword": "Scenario",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Active member reserves an available book",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "book B-42 is available"
+            },
+            {
+              "text": "M-17 reserves B-42"
+            },
+            {
+              "text": "the reservation is confirmed for M-17 and B-42"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "revised",
+    "name": "minimal",
+    "version": "final",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/minimal/final.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/minimal/final.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/minimal/final.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-Qvexsn/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "openspec",
+          "/tmp/opsx-evidence-check-Qvexsn/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"openspec\",\n  \"file\": \"/tmp/opsx-evidence-check-Qvexsn/case.openspec.md\",\n  \"valid\": true,\n  \"issues\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-Qvexsn/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-Qvexsn/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-Qvexsn/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-Qvexsn/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-Qvexsn/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-Qvexsn/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "One normative Rule, one Scenario, meaningful description, no incidental tags",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Library book reservations",
+      "description": "  Enable active library members to reserve available books and receive confirmation identifying the member and book.",
+      "tags": [],
+      "rules": [
+        {
+          "name": "Active members can reserve available books",
+          "description": "    The reservation service SHALL confirm a reservation for an active member and an available book when that member reserves the book.",
+          "tags": []
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Active member reserves an available book",
+          "keyword": "Scenario",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Active member reserves an available book",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "book B-42 is available"
+            },
+            {
+              "text": "M-17 reserves B-42"
+            },
+            {
+              "text": "the reservation is confirmed for M-17 and B-42"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "revised",
+    "name": "arguments",
+    "version": "draft",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/arguments/draft.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/arguments/draft.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/arguments/draft.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-e14x0P/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "openspec",
+          "/tmp/opsx-evidence-check-e14x0P/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"openspec\",\n  \"file\": \"/tmp/opsx-evidence-check-e14x0P/case.openspec.md\",\n  \"valid\": true,\n  \"issues\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-e14x0P/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-e14x0P/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-e14x0P/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-e14x0P/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-e14x0P/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-e14x0P/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "One Outline and two correctly bound Examples groups",
+        "passed": true
+      },
+      {
+        "label": "Decoded table/JSON values and outcomes in all three expanded cases",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Import library catalog copies",
+      "description": "  Import library catalog copies with a positive copies count and reject imports with zero copies.",
+      "tags": [],
+      "rules": [
+        {
+          "name": "Decide imports by copies count",
+          "description": "    The system SHALL accept an import with a positive copies count and SHALL reject an import with zero copies.",
+          "tags": []
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Import catalog copies",
+          "keyword": "Scenario Outline",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Import catalog copies",
+          "steps": [
+            {
+              "text": "the import has the following catalog fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 1,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is accepted"
+            }
+          ]
+        },
+        {
+          "name": "Import catalog copies",
+          "steps": [
+            {
+              "text": "the import has the following catalog fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 2,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is accepted"
+            }
+          ]
+        },
+        {
+          "name": "Import catalog copies",
+          "steps": [
+            {
+              "text": "the import has the following catalog fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 0,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is rejected"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "revised",
+    "name": "arguments",
+    "version": "final",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/arguments/final.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/arguments/final.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/arguments/final.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-J3GTIs/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "openspec",
+          "/tmp/opsx-evidence-check-J3GTIs/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"openspec\",\n  \"file\": \"/tmp/opsx-evidence-check-J3GTIs/case.openspec.md\",\n  \"valid\": true,\n  \"issues\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-J3GTIs/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-J3GTIs/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-J3GTIs/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-J3GTIs/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-J3GTIs/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-J3GTIs/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "One Outline and two correctly bound Examples groups",
+        "passed": true
+      },
+      {
+        "label": "Decoded table/JSON values and outcomes in all three expanded cases",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Import library catalog copies",
+      "description": "  Import library catalog copies with a positive copies count and reject imports with zero copies.",
+      "tags": [],
+      "rules": [
+        {
+          "name": "Decide imports by copies count",
+          "description": "    The system SHALL accept an import with a positive copies count and SHALL reject an import with zero copies.",
+          "tags": []
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Import catalog copies",
+          "keyword": "Scenario Outline",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Import catalog copies",
+          "steps": [
+            {
+              "text": "the import has the following catalog fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 1,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is accepted"
+            }
+          ]
+        },
+        {
+          "name": "Import catalog copies",
+          "steps": [
+            {
+              "text": "the import has the following catalog fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 2,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is accepted"
+            }
+          ]
+        },
+        {
+          "name": "Import catalog copies",
+          "steps": [
+            {
+              "text": "the import has the following catalog fields:",
+              "argument": {
+                "dataTable": {
+                  "rows": [
+                    {
+                      "cells": [
+                        {
+                          "value": "field"
+                        },
+                        {
+                          "value": "value"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "shelf"
+                        },
+                        {
+                          "value": "A|B"
+                        }
+                      ]
+                    },
+                    {
+                      "cells": [
+                        {
+                          "value": "source"
+                        },
+                        {
+                          "value": "C:\\catalog"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "text": "the following JSON import is submitted:",
+              "argument": {
+                "docString": {
+                  "content": "{\n  \"copies\": 0,\n  \"shelf\": \"A|B\",\n  \"source\": \"C:\\\\catalog\"\n}",
+                  "mediaType": "json"
+                }
+              }
+            },
+            {
+              "text": "the import decision is rejected"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "revised",
+    "name": "delta",
+    "version": "draft",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/delta/draft.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/delta/draft.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/delta/draft.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-XyJvNb/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "OpenSpec Validator.validateChangeDeltaSpecs(strict=true)",
+        "exit": 0,
+        "report": {
+          "valid": true,
+          "issues": [],
+          "summary": {
+            "errors": 0,
+            "warnings": 0,
+            "info": 0
+          }
+        }
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-XyJvNb/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-XyJvNb/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-XyJvNb/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-XyJvNb/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-XyJvNb/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-XyJvNb/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "All four operation identities and content boundaries",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Library circulation delta",
+      "description": "  Update loan renewal, book reservation, and circulation audit requirements.",
+      "tags": [
+        "@openspec-delta"
+      ],
+      "rules": [
+        {
+          "name": "Renew a loan",
+          "description": "    The circulation service SHALL allow an active member to renew a loan once.",
+          "tags": [
+            "@openspec-added"
+          ]
+        },
+        {
+          "name": "Reserve an available book",
+          "description": "    The circulation service SHALL allow an active member with fewer than 3 current reservations to reserve an available book.",
+          "tags": [
+            "@openspec-modified"
+          ]
+        },
+        {
+          "name": "Fax reservation",
+          "description": "",
+          "tags": [
+            "@openspec-removed"
+          ]
+        },
+        {
+          "name": "Rename requirement",
+          "description": "    FROM: ### Requirement: Loan audit\n    TO: ### Requirement: Circulation audit",
+          "tags": [
+            "@openspec-renamed"
+          ]
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Renew a loan with zero previous renewals",
+          "keyword": "Scenario",
+          "tags": []
+        },
+        {
+          "name": "Reserve an available book with two current reservations",
+          "keyword": "Scenario",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Renew a loan with zero previous renewals",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "loan L-8 belongs to member M-17 and has 0 previous renewals"
+            },
+            {
+              "text": "member M-17 renews loan L-8"
+            },
+            {
+              "text": "loan L-8 is renewed"
+            },
+            {
+              "text": "the renewal count for loan L-8 is 1"
+            }
+          ]
+        },
+        {
+          "name": "Reserve an available book with two current reservations",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "member M-17 has 2 current reservations"
+            },
+            {
+              "text": "book B-42 is available"
+            },
+            {
+              "text": "member M-17 reserves book B-42"
+            },
+            {
+              "text": "the reservation of book B-42 for member M-17 is confirmed"
+            },
+            {
+              "text": "member M-17 has 3 current reservations"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "phase": "revised",
+    "name": "delta",
+    "version": "final",
+    "commands": [
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "mdg",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/delta/final.feature.md"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"mdg\",\n  \"file\": \"/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/delta/final.feature.md\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "mdg-to-opsx",
+          "/home/eaquine/Documents/dev/personal/opsx-gherkin/openspec/changes/clarify-agent-authoring-guidance/evaluation/runs/revised/delta/final.feature.md",
+          "-o",
+          "/tmp/opsx-evidence-check-km2ven/case.openspec.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "OpenSpec Validator.validateChangeDeltaSpecs(strict=true)",
+        "exit": 0,
+        "report": {
+          "valid": true,
+          "issues": [],
+          "summary": {
+            "errors": 0,
+            "warnings": 0,
+            "info": 0
+          }
+        }
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-mdg",
+          "/tmp/opsx-evidence-check-km2ven/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-km2ven/roundtrip.feature.md"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "opsx-gherkin",
+        "args": [
+          "opsx-to-feature",
+          "/tmp/opsx-evidence-check-km2ven/case.openspec.md",
+          "-o",
+          "/tmp/opsx-evidence-check-km2ven/case.feature"
+        ],
+        "exit": 0,
+        "stdout": ""
+      },
+      {
+        "binary": "validate-spec",
+        "args": [
+          "--format",
+          "feature",
+          "/tmp/opsx-evidence-check-km2ven/case.feature"
+        ],
+        "exit": 0,
+        "stdout": "{\n  \"format\": \"feature\",\n  \"file\": \"/tmp/opsx-evidence-check-km2ven/case.feature\",\n  \"valid\": true,\n  \"errors\": []\n}\n"
+      }
+    ],
+    "assertions": [
+      {
+        "label": "Requested expanded-case count in MDG and plain Gherkin",
+        "passed": true
+      },
+      {
+        "label": "All four operation identities and content boundaries",
+        "passed": true
+      }
+    ],
+    "conversion": "All official endpoints and converter model-preservation checks passed",
+    "content": {
+      "name": "Library circulation delta",
+      "description": "  Update loan renewal, book reservation, and circulation audit requirements.",
+      "tags": [
+        "@openspec-delta"
+      ],
+      "rules": [
+        {
+          "name": "Renew a loan",
+          "description": "    The circulation service SHALL allow an active member to renew a loan once.",
+          "tags": [
+            "@openspec-added"
+          ]
+        },
+        {
+          "name": "Reserve an available book",
+          "description": "    The circulation service SHALL allow an active member with fewer than 3 current reservations to reserve an available book.",
+          "tags": [
+            "@openspec-modified"
+          ]
+        },
+        {
+          "name": "Fax reservation",
+          "description": "",
+          "tags": [
+            "@openspec-removed"
+          ]
+        },
+        {
+          "name": "Rename requirement",
+          "description": "    FROM: ### Requirement: Loan audit\n    TO: ### Requirement: Circulation audit",
+          "tags": [
+            "@openspec-renamed"
+          ]
+        }
+      ],
+      "scenarios": [
+        {
+          "name": "Renew a loan with zero previous renewals",
+          "keyword": "Scenario",
+          "tags": []
+        },
+        {
+          "name": "Reserve an available book with two current reservations",
+          "keyword": "Scenario",
+          "tags": []
+        }
+      ],
+      "expanded": [
+        {
+          "name": "Renew a loan with zero previous renewals",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "loan L-8 belongs to member M-17 and has 0 previous renewals"
+            },
+            {
+              "text": "member M-17 renews loan L-8"
+            },
+            {
+              "text": "loan L-8 is renewed"
+            },
+            {
+              "text": "the renewal count for loan L-8 is 1"
+            }
+          ]
+        },
+        {
+          "name": "Reserve an available book with two current reservations",
+          "steps": [
+            {
+              "text": "member M-17 is active"
+            },
+            {
+              "text": "member M-17 has 2 current reservations"
+            },
+            {
+              "text": "book B-42 is available"
+            },
+            {
+              "text": "member M-17 reserves book B-42"
+            },
+            {
+              "text": "the reservation of book B-42 for member M-17 is confirmed"
+            },
+            {
+              "text": "member M-17 has 3 current reservations"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

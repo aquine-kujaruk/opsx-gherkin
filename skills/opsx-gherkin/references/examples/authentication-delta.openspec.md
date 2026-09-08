@@ -1,9 +1,10 @@
+`@code`
 `@openspec-delta`
 # Authentication delta
 
 ## Purpose
 
-Update authentication behavior.
+STRUCTURAL CHANGE DOCUMENT: This Feature packages OpenSpec delta operations for authentication software. It demonstrates a change document, not one completed application use case. The added and modified requirements contain complete behavioral examples; removal and rename contain only the names allowed by the conversion contract.
 
 ## ADDED Requirements
 
@@ -11,10 +12,17 @@ Update authentication behavior.
 
 The system SHALL accept one unused recovery code.
 
-#### Scenario: Use a recovery code
+#### Scenario Outline: An unused recovery code grants account access
 
-- **WHEN** an unused recovery code is submitted
-- **THEN** access is granted
+- **GIVEN** the account with email "<accountEmail>" has the unused recovery code "<storedRecoveryCode>"
+- **WHEN** a user requests account access for "<submittedEmail>" with recovery code "<submittedRecoveryCode>"
+- **THEN** access is granted to the account with email "<expectedAccountEmail>"
+
+##### Examples: Matching unused recovery code
+
+  | accountEmail | storedRecoveryCode | submittedEmail | submittedRecoveryCode | expectedAccountEmail |
+  | --- | --- | --- | --- | --- |
+  | user@example.com | recovery-7 | user@example.com | recovery-7 | user@example.com |
 
 ## MODIFIED Requirements
 
@@ -22,10 +30,17 @@ The system SHALL accept one unused recovery code.
 
 The system SHALL reject an incorrect password.
 
-#### Scenario: Reject an incorrect password
+#### Scenario Outline: An incorrect password rejects account access
 
-- **WHEN** an incorrect password is submitted
+- **GIVEN** the account with email "<accountEmail>" has the password "<storedPassword>"
+- **WHEN** a user signs in with email "<submittedEmail>" and password "<submittedPassword>"
 - **THEN** access is rejected
+
+##### Examples: Password mismatch
+
+  | accountEmail | storedPassword | submittedEmail | submittedPassword |
+  | --- | --- | --- | --- |
+  | user@example.com | correct-password | user@example.com | wrong-password |
 
 ## REMOVED Requirements
 

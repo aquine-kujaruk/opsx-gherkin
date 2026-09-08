@@ -10,6 +10,7 @@ import {
   parseAndValidateMdg,
   validateOpenSpec,
 } from '../src/validation/official.js'
+import { mdgModel } from './helpers.js'
 
 const root = resolve(import.meta.dirname, '..')
 
@@ -93,6 +94,23 @@ test('full MDG surface remains stable through OpenSpec', async () => {
   assert.match(mdg, /### Scenario Outline:/)
   assert.match(mdg, /#### Examples: Unknown account/)
   assert.match(mdg, /```json/)
+})
+
+test('MDG table input variants preserve cases and canonicalize without separators', async () => {
+  const withSeparators = await readFile(
+    join(root, 'tests/fixtures/user-sign-in.feature.md'),
+    'utf8',
+  )
+  const withoutSeparators = withSeparators.replace(/^\s*\|(?:\s*:?-+:?\s*\|)+\s*$/gm, '')
+  assert.deepEqual(mdgModel(withoutSeparators), mdgModel(withSeparators))
+  const opsx = await mdgToOpsx(withSeparators)
+  assert.equal(await mdgToOpsx(withoutSeparators), opsx)
+  assert.match(opsx, /^ {2}\| ---/m)
+  const mdg = await opsxToMdg(opsx)
+  assert.doesNotMatch(mdg, /^\s*\|(?:\s*:?-+:?\s*\|)+\s*$/m)
+  assert.deepEqual(mdgModel(mdg), mdgModel(withSeparators))
+  assert.equal(parseAndValidateMdg(mdg).pickles.length, 4)
+  assert.equal(await mdgToOpsx(mdg), opsx)
 })
 
 test('all four OpenSpec delta operations round-trip canonically', async () => {

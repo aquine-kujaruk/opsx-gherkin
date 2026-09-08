@@ -57,6 +57,6 @@ export function serializeMdgScenario(
     pushTags(output, examples.tags)
     output.push(`${'#'.repeat(level + 1)} Examples: ${examples.name}`, '')
     if (examples.description) output.push(examples.description, '')
-    pushTable(output, examples.rows)
+    pushTable(output, examples.rows, true, false)
   }
 }

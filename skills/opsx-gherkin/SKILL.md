@@ -7,8 +7,10 @@ description: Write, review, or convert specification syntax that must remain com
 
 Preserve the intended behavior while expressing it in the requested format.
 Read the [canonical compatibility contract](references/OPENSPEC_MDG_PROFILE.feature.md)
-before authoring or changing a compatible specification. That file defines the
-supported mappings; this entry point explains how to use them.
+in full before authoring or changing a compatible specification. Its Rules and
+Scenarios specify the converter and demonstrate the format. Apply that structure
+and its compatibility constraints to the requested domain's behavior. The contract
+defines the supported mappings; this entry point explains how to use them.
 
 ## Select the representation
 
@@ -21,14 +23,34 @@ supported mappings; this entry point explains how to use them.
 These are the supported conversion directions. Plain `.feature` is an output
 and a directly validatable format; it is not a converter input.
 
-For a complete main-spec example, read [account.feature.md](references/examples/account.feature.md)
-and its [OpenSpec](references/examples/account.openspec.md) or
-[plain Gherkin](references/examples/account.feature) counterpart as needed.
-For supported delta syntax, use [authentication-delta.feature.md](references/examples/authentication-delta.feature.md)
-and its [OpenSpec counterpart](references/examples/authentication-delta.openspec.md).
+After reading the contract, choose a complete example for the constructs you need:
+
+- Basic main spec: [minimal.feature.md](references/examples/minimal.feature.md),
+  with a Feature description, a software target, one normative Rule, and a single-row Outline;
+  equivalent [OpenSpec](references/examples/minimal.openspec.md) and
+  [plain Gherkin](references/examples/minimal.feature).
+- Shared setup, outlines, multiple Examples groups, Data Tables, and Doc Strings:
+  [account.feature.md](references/examples/account.feature.md), with
+  [OpenSpec](references/examples/account.openspec.md) and
+  [plain Gherkin](references/examples/account.feature) counterparts.
+- Delta operations: [authentication-delta.feature.md](references/examples/authentication-delta.feature.md)
+  with [OpenSpec](references/examples/authentication-delta.openspec.md) and
+  [plain Gherkin](references/examples/authentication-delta.feature) counterparts.
+  This is a structural change document; each added/modified behavior still needs
+  a complete example, while removal/rename entries retain their restricted shape.
+- Finding and retrieving the contract: [profile-access.feature.md](references/profile-access.feature.md).
+
+These examples apply the canonical contract to their own domains.
 
 ## Author within the contract
 
+- Model each completed Feature as one whole public use case. Give each scenario
+  its own necessary prior facts, one action or query, and observable consequences.
+  Keep acceptance and rejection in separate scenarios of the same use case.
+- Expose meaningful example values as named Outline arguments, even for one row.
+  Keep independent roles distinct, such as stored/submitted credentials and
+  requested/resulting quantities. Keep fixed criteria in Rules, cohesive records
+  in Data Tables, and literal source text intact when the use case examines it.
 - Match the requested representation: Gherkin headings and bullet steps in MDG,
   OpenSpec requirement headings and bold step keywords in OpenSpec, native
   keyword lines in `.feature`. A fenced native document is not MDG structure.
@@ -43,6 +65,14 @@ and its [OpenSpec counterpart](references/examples/authentication-delta.openspec
   their tags, and step Data Tables distinct. Follow the contract's indented
   Markdown table syntax and escaping. Check parsed row counts and literal
   values, especially pipes, backslashes, newlines, and Doc String contents.
+- Identify a completed Feature's verification boundary: `@code` for software,
+  `@skill` for an agent applying guidance, `@prompt` for a model executing a prompt,
+  or `@plugin` for its host integration. The software teaching examples use `@code`.
+  These tags identify the exercised boundary, not its internal dependencies.
+  Descriptive topic tags are optional and need not be copied from the contract.
+- Conversion accepts compatible untagged documents and plain Scenarios too.
+  Preserve their existing model; do not insert targets or invent parameters
+  while converting. Authoring conventions do not narrow syntax acceptance.
 - In MDG, put each tag in its own backtick span immediately above the tagged
   heading. In native Gherkin, use bare tags. Reserve `@openspec-*` and `@mdg-*`
   names for the structural roles defined by the contract.
@@ -53,10 +83,12 @@ and its [OpenSpec counterpart](references/examples/authentication-delta.openspec
 
 ### Keep table and argument values intact
 
-Indent Markdown table rows by two spaces. Use one header row, one Markdown
-separator row, then the intended data rows. The separator is formatting; it
-must not become an Examples case or a Data Table value. Plain Gherkin tables
-omit that separator. Use `\|` for a literal pipe, `\\` for a literal backslash,
+Indent Markdown table rows by two spaces. In MDG, put data rows directly after
+the header, without a separator row; the converter emits this canonical form.
+OpenSpec tables retain their Markdown separator row. The pinned MDG parser
+accepts either input form and preserves the interpreted rows; table formatting
+must not change Examples cases or Data Table values. Plain Gherkin also omits
+separators. Use `\|` for a literal pipe, `\\` for a literal backslash,
 and `\n` for a newline inside a cell. Do not apply cell escaping to Doc Strings.
 
 Keep a Markdown Doc String in a triple-backtick block indented by two spaces
@@ -86,13 +118,20 @@ The converters validate both endpoints and reject changes to the normalized
 model before emitting output. Formatting may become canonical; names, values,
 structure, and supported metadata must retain their meaning.
 
-Direct endpoint validation checks syntax rather than conversion eligibility:
+Direct endpoint validation checks syntax rather than conversion eligibility.
+The standalone OpenSpec validator below accepts main specifications. For deltas,
+use a supported conversion: it invokes the official strict delta validator and
+checks model preservation.
 
 ```sh
 validate-spec --format openspec spec.md
 validate-spec --format mdg input.feature.md
 validate-spec --format feature output.feature
 ```
+
+Passing these checks establishes example syntax and conversion preservation.
+Review the authored scenarios against the requested domain behavior as well;
+validator success alone does not establish reliable agent authoring.
 
 With npm/npx, use `npx opsx-gherkin <command>` for the main CLI and
 `npx --package opsx-gherkin validate-spec ...` for the standalone validator.

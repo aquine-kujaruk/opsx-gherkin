@@ -109,7 +109,11 @@ try {
   assert.equal(bin('opsx-gherkin', ['instructions']), profile)
   assert.match(bin('opsx-gherkin', ['--help']), /opsx-gherkin profile/)
 
-  for (const name of ['account', 'authentication-delta']) {
+  for (const [name, expectedCount] of [
+    ['minimal', 1],
+    ['account', 5],
+    ['authentication-delta', 2],
+  ]) {
     const source = path.join(
       installed,
       `skills/opsx-gherkin/references/examples/${name}.feature.md`,
@@ -124,15 +128,15 @@ try {
     const mdg = bin('opsx-to-mdg', [], { input: opsx })
     const feature = bin('opsx-to-feature', [], { input: opsx })
     assert.equal(bin('mdg-to-opsx', [], { input: mdg }), opsx)
-    assert.equal(inspect(mdg, true).length, name === 'account' ? 4 : 2)
-    assert.equal(inspect(feature, false).length, name === 'account' ? 4 : 2)
+    assert.equal(inspect(mdg, true).length, expectedCount)
+    assert.equal(inspect(feature, false).length, expectedCount)
     const mdgPath = path.join(workspace, `${name}.feature.md`)
     const featurePath = path.join(workspace, `${name}.feature`)
     await writeFile(mdgPath, mdg)
     await writeFile(featurePath, feature)
     assert.equal(JSON.parse(bin('validate-spec', ['--format', 'mdg', mdgPath])).valid, true)
     assert.equal(JSON.parse(bin('validate-spec', ['--format', 'feature', featurePath])).valid, true)
-    if (name === 'account') {
+    if (name !== 'authentication-delta') {
       const mainPath = path.join(workspace, 'spec.md')
       await writeFile(mainPath, opsx)
       assert.equal(JSON.parse(bin('validate-spec', ['--format', 'openspec', mainPath])).valid, true)

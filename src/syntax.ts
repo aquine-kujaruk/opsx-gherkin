@@ -24,7 +24,7 @@ export function pushDescriptionAndSteps(
   for (const step of node.steps) {
     const keyword = mdg ? titleCase(step.keyword) : `**${step.keyword}**`
     output.push(`${mdg ? '*' : '-'} ${keyword} ${step.text}`)
-    if (step.table) pushTable(output, step.table, false)
+    if (step.table) pushTable(output, step.table, false, !mdg)
     if (step.docString) {
       output.push('', `  \`\`\`${step.docString.mediaType || ''}`)
       for (const line of step.docString.content.split('\n')) output.push(`  ${line}`)
@@ -34,10 +34,15 @@ export function pushDescriptionAndSteps(
   output.push('')
 }
 
-export function pushTable(output: string[], rows: string[][], blankAfter = true): void {
+export function pushTable(
+  output: string[],
+  rows: string[][],
+  blankAfter = true,
+  separator = true,
+): void {
   if (!rows?.length) return
   output.push(`  | ${rows[0].map(escapeCell).join(' | ')} |`)
-  output.push(`  | ${rows[0].map(() => '---').join(' | ')} |`)
+  if (separator) output.push(`  | ${rows[0].map(() => '---').join(' | ')} |`)
   for (const row of rows.slice(1)) output.push(`  | ${row.map(escapeCell).join(' | ')} |`)
   if (blankAfter) output.push('')
 }

@@ -26,7 +26,6 @@ jobs:
         with:
           runtime: node@22
           cache: false
-          require-lockfile: true
       - name: Install npm with trusted publishing support
         run: |
           npm install --global npm@11 --prefix "$RUNNER_TEMP/npm"

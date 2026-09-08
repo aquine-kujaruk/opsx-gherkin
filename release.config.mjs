@@ -1,11 +1,15 @@
+const parserOpts = {
+  headerPattern: /^(\w*)(?:\((.*)\))?!?: (.*)$/,
+  breakingHeaderPattern: /^(\w*)(?:\((.*)\))?!: (.*)$/,
+  headerCorrespondence: ['type', 'scope', 'subject'],
+  noteKeywords: ['BREAKING CHANGE', 'BREAKING-CHANGE'],
+}
+
 export default {
   branches: ['main'],
   plugins: [
-    ['@semantic-release/commit-analyzer', { preset: 'conventionalcommits', presetConfig: {} }],
-    [
-      '@semantic-release/release-notes-generator',
-      { preset: 'conventionalcommits', presetConfig: {} },
-    ],
+    ['@semantic-release/commit-analyzer', { parserOpts }],
+    ['@semantic-release/release-notes-generator', { parserOpts }],
     '@semantic-release/changelog',
     '@semantic-release/npm',
     [

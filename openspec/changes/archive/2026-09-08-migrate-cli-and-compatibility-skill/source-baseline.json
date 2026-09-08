@@ -1,0 +1,31 @@
+{
+  "source": "/home/eaquine/Documents/Codex/2026-09-02/new-chat-2",
+  "tests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "files": {
+    "AGENTS.md": "5f852268f831e6d6f2ef7c7b2bc63013aa6615416aba3dfe8f614f36f88a39ba",
+    "OPENSPEC_MDG_PROFILE.feature.md": "5eb2ec6494ef13b6102a906323cba0d1ed7fc776a0709ccb9bff7c780044256c",
+    "README.md": "f72466ec931870fcd463eef40e3d2aea31d03cc5e3db492ec29b27c2d7f5c7b4",
+    "bin/mdg-to-opsx.mjs": "228ab5c52393410a19c0d02b3b09cb665ef29dd66835515b82005cef9ace55f4",
+    "bin/opsx-gherkin.mjs": "6f7de53eb5b4db09b1679ec2e3edd7e6efe633686095bf89ca4c11427b34a016",
+    "bin/opsx-to-feature.mjs": "eade434a4621c594ad04a9f0519598f0d81de0686ad3b304070917da16dfaa55",
+    "bin/opsx-to-mdg.mjs": "3c0f07ac545ed73207dc766f5aaf9ff47b69437e83d49ab65599a37072204d88",
+    "bin/validate-spec.mjs": "e4c1947eed140169fad608153eb61f76d9db0ed153fc968b616f198fc7198b79",
+    "examples/example-1.feature.md": "1c3aa0d5b42d7d8217ab525368d874377da9a6d411c23c9d457d95b5a216e18e",
+    "examples/example-1.md": "4cc04dcaf85161557282a89b1dd8c549c15b16a5089ce984b38e9cb6b3459ecd",
+    "examples/example-2.feature": "cc3dd2a6818db8a26f9c1fd3a5b52b3e34b850ac6b3a72ef8a9f0da2487c5277",
+    "examples/example-2.feature.md": "bf85b45a5aaebd1dc3f4dd69f3fcaff97067f84e40c6460279ee9a6e05cc474e",
+    "examples/example-2.md": "dda322911796d33e81248021addfc6f8db46087fc98b2b3d07b65a3459aab290",
+    "lib/cli.mjs": "36e317e25dd21c9825bbff49d578e983d5cbaa538bfd766d759798db91013c24",
+    "lib/official-validators.mjs": "ffc5aee276dea46ed3c674ab343e8988530ed11dce9a767244ac4cdcc64482db",
+    "lib/profile-errors.mjs": "e246bd3a0007fd4b72294a8f407d06b3162053d6a7de484d32675540e89a606a",
+    "lib/profile.mjs": "cab558e9ff5cefbbe575a5346d00aae95d6a8c17bcf3d67adcd6d1fb4991e003",
+    "outputs/user-sign-in.feature.md": "56bc8173d8bf4db984c621bc38db4e50d0d4a5b0be196543d71f31d52f5dc789",
+    "outputs/user-sign-in.openspec.md": "e73ae51e0ec89e81baa38a2e0131feee6250130740e16a19ed1e5204a9b0fe91",
+    "package-lock.json": "824a9c5d456e042526db8e2978507992b554193dd4ba2093f9c72513833fd4a8",
+    "package.json": "e8febb321fd74cfd25c4d5a78b92f404bdfe82f9c33a47e57bdedcd5aa334bb8",
+    "test/conversion.test.mjs": "36031fe9c4199d27adbb5f29169458f98e1138802e11acf4770668b46a96589c"
+  }
+}

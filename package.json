@@ -1,0 +1,87 @@
+{
+  "name": "opsx-gherkin",
+  "version": "1.0.0",
+  "description": "Deterministic OpenSpec and Gherkin conversion with a self-contained syntax compatibility skill.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aquine-kujaruk/opsx-gherkin.git"
+  },
+  "homepage": "https://github.com/aquine-kujaruk/opsx-gherkin#readme",
+  "bugs": {
+    "url": "https://github.com/aquine-kujaruk/opsx-gherkin/issues"
+  },
+  "keywords": [
+    "openspec",
+    "gherkin",
+    "markdown",
+    "cli",
+    "specification",
+    "conversion"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "packageManager": "pnpm@11.22.0",
+  "bin": {
+    "opsx-gherkin": "./dist/cli.mjs",
+    "mdg-to-opsx": "./dist/mdg-to-opsx.mjs",
+    "opsx-to-mdg": "./dist/opsx-to-mdg.mjs",
+    "opsx-to-feature": "./dist/opsx-to-feature.mjs",
+    "validate-spec": "./dist/validate-spec.mjs"
+  },
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "skills/opsx-gherkin",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsdown",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "pnpm build && vitest run",
+    "test:coverage": "pnpm build && vitest run --coverage",
+    "test:package": "pnpm build && node scripts/smoke-package.mjs",
+    "verify": "pnpm check && pnpm typecheck && pnpm test:coverage && pnpm exec publint && node scripts/smoke-package.mjs",
+    "prepack": "npm run build",
+    "release": "semantic-release"
+  },
+  "dependencies": {
+    "@cucumber/gherkin": "42.0.1",
+    "@cucumber/messages": "34.2.0",
+    "@fission-ai/openspec": "1.11.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.9",
+    "@commitlint/cli": "21.2.2",
+    "@commitlint/config-conventional": "21.2.2",
+    "@semantic-release/changelog": "7.0.0",
+    "@semantic-release/commit-analyzer": "13.0.1",
+    "@semantic-release/git": "11.0.1",
+    "@semantic-release/github": "12.0.9",
+    "@semantic-release/npm": "13.1.5",
+    "@semantic-release/release-notes-generator": "14.1.1",
+    "@types/node": "22.20.1",
+    "@vitest/coverage-v8": "4.1.11",
+    "conventional-changelog-conventionalcommits": "10.4.0",
+    "publint": "0.3.24",
+    "semantic-release": "25.0.9",
+    "tsdown": "0.22.14",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11",
+    "yaml": "2.8.3"
+  }
+}

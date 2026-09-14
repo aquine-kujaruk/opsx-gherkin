@@ -5,7 +5,7 @@ This document is the normative contract for the conversion profile. The converte
 
 Its Rules and Scenarios specify the converter, and their structure demonstrates valid Markdown with Gherkin. To author a specification for another domain, express that domain's requested behavior using the demonstrated structure and the compatibility rules in this complete contract.
 
-The **@code** target identifies software as this Feature’s verification boundary. Descriptive tags such as **@contract** are optional example metadata. A new main specification may omit them; conversion of an existing document must preserve its tags. Markers in the reserved **@openspec-** and **@mdg-** namespaces have only the structural roles defined below.
+The **@code** modality identifies programmed conversion rules as this Feature’s required execution evidence. Descriptive tags such as **@contract** are optional example metadata. A new main specification may omit them; conversion of an existing document must preserve its tags. Markers in the reserved **@openspec-** and **@mdg-** namespaces have only the structural roles defined below.
 
 The separate [profile-access use case](profile-access.feature.md) specifies how to find and retrieve this contract.
 

@@ -213,3 +213,25 @@ describe('OpenSpec syntax reader', () => {
     ).toThrow('no TO line')
   })
 })
+
+describe('metadata remains independent of authoring modality', () => {
+  test.each(['', '@skill', '@prompt', '@plugin', '@ai', '@code'])(
+    'preserves compatible %j tags and plain scenarios in every direction',
+    async (tag) => {
+      const source = tag ? `\`${tag}\`\n${simple}` : simple
+      const model = mdgModel(source)
+      const opsx = await mdgToOpsx(source)
+      expect(mdgModel(await opsxToMdg(opsx))).toEqual(model)
+      const plain = await opsxToFeature(opsx)
+      const tags = plain
+        .split('\n')
+        .filter((line) => line.startsWith('@'))
+        .join(' ')
+      if (tag) expect(tags).toContain(tag)
+      else expect(tags).toBe('')
+      expect(plain).toContain('Scenario:')
+      expect(plain).not.toContain('Scenario Outline:')
+      if (['@skill', '@prompt', '@plugin'].includes(tag)) expect(tags).not.toMatch(/@(?:code|ai)\b/)
+    },
+  )
+})

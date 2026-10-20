@@ -1,4 +1,4 @@
-`@code` `@authentication` `@security`
+`@authentication` `@security`
 # User sign-in
 
 ## Purpose

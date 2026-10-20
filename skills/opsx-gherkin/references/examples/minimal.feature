@@ -1,4 +1,3 @@
-@code
 Feature: Add a product to an empty shopping cart
 
   Keep the quantity a customer selects when adding a product to an empty shopping cart.

@@ -1,4 +1,4 @@
-`@code` `@openspec-delta`
+`@openspec-delta`
 # Feature: Authentication delta
 
 STRUCTURAL CHANGE DOCUMENT: This Feature packages OpenSpec delta operations for authentication software. It demonstrates a change document, not one completed application use case. The added and modified requirements contain complete behavioral examples; removal and rename contain only the names allowed by the conversion contract.

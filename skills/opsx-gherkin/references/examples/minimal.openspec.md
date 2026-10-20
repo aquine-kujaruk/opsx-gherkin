@@ -1,4 +1,3 @@
-`@code`
 # Add a product to an empty shopping cart
 
 ## Purpose

@@ -1,11 +1,11 @@
-`@code` `@contract`
+`@contract`
 # Feature: Convert a compatible specification
 
 This document is the normative contract for the conversion profile. The converters SHALL preserve the domain structure represented here and SHALL reject mappings not defined here.
 
 Its Rules and Scenarios specify the converter, and their structure demonstrates valid Markdown with Gherkin. To author a specification for another domain, express that domain's requested behavior using the demonstrated structure and the compatibility rules in this complete contract.
 
-The **@code** modality identifies programmed conversion rules as this Feature’s required execution evidence. Descriptive tags such as **@contract** are optional example metadata. A new main specification may omit them; conversion of an existing document must preserve its tags. Markers in the reserved **@openspec-** and **@mdg-** namespaces have only the structural roles defined below.
+Descriptive tags such as **@contract** are optional example metadata. A new main specification may omit them; conversion of an existing document must preserve its tags. Markers in the reserved **@openspec-** and **@mdg-** namespaces have only the structural roles defined below.
 
 The separate [profile-access use case](profile-access.feature.md) specifies how to find and retrieve this contract.
 
@@ -71,7 +71,7 @@ The converter SHALL map a Gherkin Feature to an OpenSpec title and Purpose, and 
 * Given this compatible OpenSpec document:
 
   ```markdown
-  `@code`
+  `@authentication`
   # Sign in with account credentials
 
   ## Purpose
@@ -119,7 +119,7 @@ The converter SHALL map a Gherkin Feature to an OpenSpec title and Purpose, and 
 * Then the destination is:
 
   ```markdown
-  `@code`
+  `@authentication`
   # Feature: Sign in with account credentials
 
   Give an active account access when the submitted credentials match its registered credentials.

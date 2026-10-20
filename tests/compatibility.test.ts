@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 import { mdgToOpsx, opsxToFeature, opsxToMdg } from '../src/convert.js'
 import type { DocumentModel } from '../src/model.js'
 import {
@@ -214,10 +214,11 @@ describe('OpenSpec syntax reader', () => {
   })
 })
 
-describe('metadata remains independent of authoring modality', () => {
+describe('supplied tags are preserved as metadata', () => {
   test.each(['', '@skill', '@prompt', '@plugin', '@ai', '@code'])(
     'preserves compatible %j tags and plain scenarios in every direction',
     async (tag) => {
+      const warn = vi.spyOn(console, 'warn')
       const source = tag ? `\`${tag}\`\n${simple}` : simple
       const model = mdgModel(source)
       const opsx = await mdgToOpsx(source)
@@ -227,11 +228,12 @@ describe('metadata remains independent of authoring modality', () => {
         .split('\n')
         .filter((line) => line.startsWith('@'))
         .join(' ')
-      if (tag) expect(tags).toContain(tag)
-      else expect(tags).toBe('')
+      // The tag survives unchanged and alone: nothing is relabeled or added.
+      expect(tags).toBe(tag)
       expect(plain).toContain('Scenario:')
       expect(plain).not.toContain('Scenario Outline:')
-      if (['@skill', '@prompt', '@plugin'].includes(tag)) expect(tags).not.toMatch(/@(?:code|ai)\b/)
+      expect(warn).not.toHaveBeenCalled()
+      warn.mockRestore()
     },
   )
 })

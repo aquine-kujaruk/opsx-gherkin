@@ -1,4 +1,4 @@
-`@code` `@authentication` `@security`
+`@authentication` `@security`
 # Feature: User sign-in
 
 Allow registered users to access their accounts securely while rejecting invalid credentials and limiting repeated attempts.

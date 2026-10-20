@@ -65,29 +65,12 @@ These examples apply the canonical contract to their own domains.
   their tags, and step Data Tables distinct. Follow the contract's indented
   Markdown table syntax and escaping. Check parsed row counts and literal
   values, especially pipes, backslashes, newlines, and Doc String contents.
-- Select exactly one Feature-level verification modality: `@code` when acceptance
-  exercises programmed rules; `@ai` when it must exercise a model or agent
-  interpreting instructions and context. Rules and scenarios inherit that
-  selection; a child tag choosing the other modality is an authoring defect.
-  Packaging as software, a skill, a prompt or a plugin does not choose modality.
-  Neither deterministic/stochastic behavior nor an exact/AI checker selects it.
-  The programmed teaching examples use `@code`; other descriptive tags are optional.
-- An application classifying tickets through a real model requires `@ai` evidence.
-  Programmed handling of a supplied fixed model response uses `@code`, with no
-  claim about the real model's interpretation. A programmed plugin operation is
-  also `@code`. An agent producing files is `@ai` even when checks compare exact
-  paths and bytes. Programmed report generation stays `@code` when an AI judge
-  merely evaluates its output: the judge is not the behavior under test.
-- Keep an unresolved execution route explicit. Preserve established behavior,
-  identify the missing decision, and leave modality pending until resolved;
-  do not combine tags, duplicate the use case, or infer a choice from packaging.
-  Language, runner, model provider and checker remain independent project choices.
-  Modality does not require choosing a generation tool or authorize generating tests.
 - Conversion accepts compatible untagged documents and plain Scenarios too.
   Preserve their existing model; do not insert targets or invent parameters
-  while converting. Preserve historical `@skill`, `@prompt` and `@plugin` tags
-  as supplied metadata; do not relabel them during conversion. They are not new
-  verification modalities. Authoring conventions do not narrow syntax acceptance.
+  while converting. Preserve `@code`, `@ai`, `@skill`, `@prompt` and `@plugin`
+  as supplied metadata without meaning; do not relabel or prescribe them.
+  No verification tag is required. Authoring conventions do not narrow syntax
+  acceptance.
 - In MDG, put each tag in its own backtick span immediately above the tagged
   heading. In native Gherkin, use bare tags. Reserve `@openspec-*` and `@mdg-*`
   names for the structural roles defined by the contract.

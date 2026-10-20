@@ -1,4 +1,3 @@
-`@code`
 `@openspec-delta`
 # Authentication delta
 

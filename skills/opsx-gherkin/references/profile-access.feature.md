@@ -1,4 +1,3 @@
-`@code`
 # Feature: Access specification conversion guidance
 
 Find the supported output formats and retrieve the canonical conversion profile before authoring a compatible specification. The [canonical mapping contract](OPENSPEC_MDG_PROFILE.feature.md) defines the mappings; this Feature specifies access to that resource.

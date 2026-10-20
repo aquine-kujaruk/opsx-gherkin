@@ -17,10 +17,10 @@ const behavior = (pickles: Pickle[]) =>
   }))
 
 test('bundled examples preserve their advertised structure and values', async () => {
-  for (const [name, expectedCount] of [
-    ['minimal', 1],
-    ['account', 5],
-    ['authentication-delta', 2],
+  for (const [name, expectedCount, expectedTags] of [
+    ['minimal', 1, []],
+    ['account', 5, ['@authentication', '@security']],
+    ['authentication-delta', 2, ['@openspec-delta']],
   ] as const) {
     const mdg = await readFile(join(skill, `references/examples/${name}.feature.md`), 'utf8')
     const opsx = await readFile(join(skill, `references/examples/${name}.openspec.md`), 'utf8')
@@ -33,7 +33,10 @@ test('bundled examples preserve their advertised structure and values', async ()
     expect(plain).toBe(await readFile(join(skill, `references/examples/${name}.feature`), 'utf8'))
     expect(plain).not.toMatch(/`<[^>]+>`/)
     for (const example of cases) {
-      expect(example.tags.map((tag) => tag.name)).toContain('@code')
+      const tags = example.tags.map((tag) => tag.name)
+      expect(tags).toEqual(expect.arrayContaining([...expectedTags]))
+      expect(tags).not.toEqual(expect.arrayContaining(['@code']))
+      expect(tags).not.toEqual(expect.arrayContaining(['@ai']))
       expect(example.steps.filter((step) => step.type === 'Action')).toHaveLength(1)
       expect(example.steps[0].type).toBe('Context')
       expect(example.steps.at(-1)?.type).toBe('Outcome')
@@ -42,7 +45,7 @@ test('bundled examples preserve their advertised structure and values', async ()
     if (name === 'minimal') {
       const model = mdgModel(mdg)
       expect(model.description).not.toBe('')
-      expect(model.tags).toEqual(['@code'])
+      expect(model.tags).toEqual([])
       expect(model.featureScenarios).toEqual([])
       expect(model.background).toBeNull()
       expect(model.rules).toHaveLength(1)
@@ -122,7 +125,7 @@ test('embedded document pair and profile-access Feature preserve complete exampl
   expect(pairCases[0].steps.at(-1)?.text).toContain('granted')
   expect(pairCases[1].steps.at(-1)?.text).toContain('rejected')
   for (const example of pairCases) {
-    expect(example.tags.map((tag) => tag.name)).toContain('@code')
+    expect(example.tags.map((tag) => tag.name)).toContain('@authentication')
     expect(example.steps.filter((step) => step.type === 'Action')).toHaveLength(1)
   }
   const access = await readFile(join(skill, 'references/profile-access.feature.md'), 'utf8')

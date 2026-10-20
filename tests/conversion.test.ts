@@ -96,19 +96,32 @@ test('full MDG surface remains stable through OpenSpec', async () => {
   assert.match(mdg, /```json/)
 })
 
-test('MDG table input variants preserve cases and canonicalize without separators', async () => {
+test('MDG table input variants preserve cases and canonicalize with separators', async () => {
   const withSeparators = await readFile(
     join(root, 'tests/fixtures/user-sign-in.feature.md'),
     'utf8',
   )
-  const withoutSeparators = withSeparators.replace(/^\s*\|(?:\s*:?-+:?\s*\|)+\s*$/gm, '')
+  const separatorRow = /^\s*\|(?:\s*:?-+:?\s*\|)+\s*$/
+  const withoutSeparators = withSeparators.replace(new RegExp(separatorRow, 'gm'), '')
   assert.deepEqual(mdgModel(withoutSeparators), mdgModel(withSeparators))
   const opsx = await mdgToOpsx(withSeparators)
   assert.equal(await mdgToOpsx(withoutSeparators), opsx)
   assert.match(opsx, /^ {2}\| ---/m)
   const mdg = await opsxToMdg(opsx)
-  assert.doesNotMatch(mdg, /^\s*\|(?:\s*:?-+:?\s*\|)+\s*$/m)
+  assert.equal(await opsxToMdg(await mdgToOpsx(withoutSeparators)), mdg)
+  // One Data Table and two Examples tables: each keeps its header, one separator, then data rows.
+  const lines = mdg.split('\n')
+  const separators = lines.flatMap((line, index) => (separatorRow.test(line) ? [index] : []))
+  assert.equal(separators.length, 3)
+  for (const index of separators) {
+    assert.match(lines[index], /^ {2}\| --- \|/)
+    assert.match(lines[index - 1], /^ {2}\| [^-]/)
+    assert.match(lines[index + 1], /^ {2}\| [^-]/)
+  }
   assert.deepEqual(mdgModel(mdg), mdgModel(withSeparators))
+  const stepArguments = (text: string) =>
+    parseAndValidateMdg(text).pickles.map(({ steps }) => steps.map((step) => step.argument))
+  assert.deepEqual(stepArguments(mdg), stepArguments(withSeparators))
   assert.equal(parseAndValidateMdg(mdg).pickles.length, 4)
   assert.equal(await mdgToOpsx(mdg), opsx)
 })

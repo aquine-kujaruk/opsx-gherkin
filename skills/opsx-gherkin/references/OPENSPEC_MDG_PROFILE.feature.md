@@ -5,6 +5,8 @@ This document is the normative contract for the conversion profile. The converte
 
 Its Rules and Scenarios specify the converter, and their structure demonstrates valid Markdown with Gherkin. To author a specification for another domain, express that domain's requested behavior using the demonstrated structure and the compatibility rules in this complete contract.
 
+Write specification content in English unless the user or the project's agent instructions, such as `CLAUDE.md` or `AGENTS.md`, explicitly request another language for the specifications; structural keywords remain English in every case, and instructions about the language of other documents do not apply to specifications.
+
 Descriptive tags such as **@contract** are optional example metadata. A new main specification may omit them; conversion of an existing document must preserve its tags. Markers in the reserved **@openspec-** and **@mdg-** namespaces have only the structural roles defined below.
 
 The separate [profile-access use case](profile-access.feature.md) specifies how to find and retrieve this contract.
@@ -51,6 +53,7 @@ The converter SHALL map a Gherkin Feature to an OpenSpec title and Purpose, and 
 * Given the following structural correspondence:
 
   | MDG | OpenSpec |
+  | --- | --- |
   | Feature | title and Purpose |
   | Rule | Requirement |
   | Rule description | normative requirement text |
@@ -143,6 +146,7 @@ The converter SHALL map a Gherkin Feature to an OpenSpec title and Purpose, and 
   #### Examples: Matching credentials
 
     | registered_email | registered_password | submitted_email | submitted_password | expected_email |
+    | --- | --- | --- | --- | --- |
     | user@example.com | correct-password | user@example.com | correct-password | user@example.com |
 
   `@rejected`
@@ -155,6 +159,7 @@ The converter SHALL map a Gherkin Feature to an OpenSpec title and Purpose, and 
   #### Examples: Nonmatching password
 
     | registered_email | registered_password | submitted_email | submitted_password |
+    | --- | --- | --- | --- |
     | user@example.com | correct-password | user@example.com | wrong-password |
   ```
 
@@ -162,7 +167,7 @@ The converter SHALL map a Gherkin Feature to an OpenSpec title and Purpose, and 
 
 The converter SHALL preserve Scenario and Scenario Outline structure, typed steps, tags, Examples, Data Tables, and Doc Strings without treating them as opaque prose.
 
-Canonical MDG tables SHALL contain an indented header followed directly by data rows, without Markdown separator rows. Canonical OpenSpec tables SHALL retain their Markdown separator rows. Compatible MDG inputs with or without separators SHALL preserve the same interpreted rows and values.
+Canonical MDG and OpenSpec tables SHALL carry one Markdown separator row directly after their indented header; canonical plain Gherkin tables SHALL omit it. Compatible MDG inputs with or without separators SHALL preserve the same interpreted rows and values.
 
 ### Scenario: Map typed steps
 
@@ -188,6 +193,7 @@ Canonical MDG tables SHALL contain an indented header followed directly by data 
 #### Examples: One group
 
   | source_format | target_format | source_groups | expected_groups |
+  | --- | --- | --- | --- |
   | MDG | OpenSpec | 1 | 1 |
   | OpenSpec | MDG | 1 | 1 |
 
@@ -195,6 +201,7 @@ Canonical MDG tables SHALL contain an indented header followed directly by data 
 #### Examples: Several groups
 
   | source_format | target_format | source_groups | expected_groups |
+  | --- | --- | --- | --- |
   | OpenSpec | MDG | 3 | 3 |
   | MDG | OpenSpec | 3 | 3 |
 
@@ -203,6 +210,7 @@ Canonical MDG tables SHALL contain an indented header followed directly by data 
 * Given a compatible `<source_format>` main spec with a scenario step containing this Data Table:
 
   | field | value |
+  | --- | --- |
   | status | active |
   | attempts | 4 |
 * And another step in the same scenario containing this Doc String:
@@ -218,6 +226,7 @@ Canonical MDG tables SHALL contain an indented header followed directly by data 
 #### Examples: Argument conversion directions
 
   | source_format | target_format |
+  | --- | --- |
   | MDG | OpenSpec |
   | OpenSpec | MDG |
 
@@ -254,6 +263,7 @@ The converter SHALL mark a delta Feature with **@openspec-delta** and SHALL repr
 #### Examples: Supported operations
 
   | operation | tag |
+  | --- | --- |
   | ADDED | @openspec-added |
   | MODIFIED | @openspec-modified |
   | REMOVED | @openspec-removed |
@@ -269,6 +279,7 @@ The converter SHALL mark a delta Feature with **@openspec-delta** and SHALL repr
 #### Examples: Operation identities
 
   | operation | tag |
+  | --- | --- |
   | ADDED | @openspec-added |
   | MODIFIED | @openspec-modified |
   | REMOVED | @openspec-removed |
@@ -288,6 +299,7 @@ The converter SHALL mark a delta Feature with **@openspec-delta** and SHALL repr
 #### Examples: Renamed requirements
 
   | old_name | new_name |
+  | --- | --- |
   | Login audit | Authentication audit |
 
 ## Rule: Validate and normalize every conversion
@@ -312,6 +324,7 @@ The converter SHALL validate both endpoints with their official deterministic va
 #### Examples: Invalid profile outcome
 
   | exit_status |
+  | --- |
   | 1 |
 
 ### Scenario: Reject removal metadata without a defined mapping
@@ -338,6 +351,7 @@ The converter SHALL validate both endpoints with their official deterministic va
 #### Examples: Ordered delta conversion directions
 
   | source_format | target_format |
+  | --- | --- |
   | OpenSpec | MDG |
   | MDG | OpenSpec |
 
@@ -354,6 +368,7 @@ All converter commands SHALL accept one path, inline text, or stdin and SHALL re
 #### Examples: Input modes
 
   | source |
+  | --- |
   | positional path |
   | --text |
   | stdin |
@@ -369,4 +384,5 @@ All converter commands SHALL accept one path, inline text, or stdin and SHALL re
 #### Examples: Protected destination
 
   | destination | exit_status |
+  | --- | --- |
   | account.spec.md | 2 |

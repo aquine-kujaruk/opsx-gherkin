@@ -17,6 +17,7 @@ The system SHALL accept one unused recovery code.
 #### Examples: Matching unused recovery code
 
   | accountEmail | storedRecoveryCode | submittedEmail | submittedRecoveryCode | expectedAccountEmail |
+  | --- | --- | --- | --- | --- |
   | user@example.com | recovery-7 | user@example.com | recovery-7 | user@example.com |
 
 `@openspec-modified`
@@ -33,6 +34,7 @@ The system SHALL reject an incorrect password.
 #### Examples: Password mismatch
 
   | accountEmail | storedPassword | submittedEmail | submittedPassword |
+  | --- | --- | --- | --- |
   | user@example.com | correct-password | user@example.com | wrong-password |
 
 `@openspec-removed`

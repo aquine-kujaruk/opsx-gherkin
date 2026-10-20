@@ -49,8 +49,9 @@ the compatibility profile produces a diagnostic instead of an inferred mapping.
 Supported delta operations include ADDED, MODIFIED, REMOVED, and RENAMED; the
 contract defines their allowed content.
 
-Complete examples: [account access](skills/opsx-gherkin/references/examples/account.feature.md)
-and [authentication delta](skills/opsx-gherkin/references/examples/authentication-delta.feature.md).
+Complete examples: [minimal main spec](skills/opsx-gherkin/references/examples/minimal.feature.md)
+and [authentication delta](skills/opsx-gherkin/references/examples/authentication-delta.feature.md);
+the contract's sign-in conversion scenario shows shared setup, Rules, and outlines.
 
 ## Validate syntax directly
 

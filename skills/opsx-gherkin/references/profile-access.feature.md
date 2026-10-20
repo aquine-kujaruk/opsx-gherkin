@@ -29,5 +29,6 @@ The profile and instructions commands SHALL return the canonical mapping contrac
 #### Examples: Resource commands
 
   | command | exit_status |
+  | --- | --- |
   | profile | 0 |
   | instructions | 0 |

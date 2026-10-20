@@ -26,13 +26,14 @@ and a directly validatable format; it is not a converter input.
 After reading the contract, choose a complete example for the constructs you need:
 
 - Basic main spec: [minimal.feature.md](references/examples/minimal.feature.md),
-  with a Feature description, programmed execution, one normative Rule, and a single-row Outline;
-  equivalent [OpenSpec](references/examples/minimal.openspec.md) and
-  [plain Gherkin](references/examples/minimal.feature).
-- Shared setup, outlines, multiple Examples groups, Data Tables, and Doc Strings:
-  [account.feature.md](references/examples/account.feature.md), with
-  [OpenSpec](references/examples/account.openspec.md) and
-  [plain Gherkin](references/examples/account.feature) counterparts.
+  with a Feature description, one normative Rule, and a single-row Outline with
+  named arguments; equivalent [OpenSpec](references/examples/minimal.openspec.md)
+  and [plain Gherkin](references/examples/minimal.feature).
+- Shared setup, Rules, outlines, and tags in paired OpenSpec and MDG form: the
+  contract's "Convert a complete sign-in specification to MDG" scenario.
+  Several tagged Examples groups, Data Tables, and Doc Strings: the Examples-group
+  and literal step-argument Outlines in the contract's "Preserve behavioral
+  Gherkin constructs" Rule.
 - Delta operations: [authentication-delta.feature.md](references/examples/authentication-delta.feature.md)
   with [OpenSpec](references/examples/authentication-delta.openspec.md) and
   [plain Gherkin](references/examples/authentication-delta.feature) counterparts.
@@ -42,15 +43,8 @@ After reading the contract, choose a complete example for the constructs you nee
 
 These examples apply the canonical contract to their own domains.
 
-## Author within the contract
+## Write compatible syntax
 
-- Model each completed Feature as one whole public use case. Give each scenario
-  its own necessary prior facts, one action or query, and observable consequences.
-  Keep acceptance and rejection in separate scenarios of the same use case.
-- Expose meaningful example values as named Outline arguments, even for one row.
-  Keep independent roles distinct, such as stored/submitted credentials and
-  requested/resulting quantities. Keep fixed criteria in Rules, cohesive records
-  in Data Tables, and literal source text intact when the use case examines it.
 - Match the requested representation: Gherkin headings and bullet steps in MDG,
   OpenSpec requirement headings and bold step keywords in OpenSpec, native
   keyword lines in `.feature`. A fenced native document is not MDG structure.
@@ -61,15 +55,19 @@ These examples apply the canonical contract to their own domains.
   its intended scope; preserve the original step roles and all example values.
 - Use English structural keywords supported by this profile. Do not translate
   keywords or rewrite domain content merely to make conversion succeed.
+- Write specification content in English. Use another language only when the
+  user or the project's `CLAUDE.md` or `AGENTS.md` explicitly requests it for
+  the specifications; structural keywords stay English either way. Instructions
+  about the language of other documents, such as proposals, do not apply.
 - Bind outline placeholders with concrete Examples rows. Keep Examples groups,
   their tags, and step Data Tables distinct. Follow the contract's indented
   Markdown table syntax and escaping. Check parsed row counts and literal
   values, especially pipes, backslashes, newlines, and Doc String contents.
 - Conversion accepts compatible untagged documents and plain Scenarios too.
-  Preserve their existing model; do not insert targets or invent parameters
-  while converting. Preserve `@code`, `@ai`, `@skill`, `@prompt` and `@plugin`
-  as supplied metadata without meaning; do not relabel or prescribe them.
-  No verification tag is required. Authoring conventions do not narrow syntax
+  Preserve their existing model; do not insert tags or invent parameters while
+  converting. Descriptive tags are metadata without meaning to the converter,
+  and none is required: a new document may omit them, but conversion preserves
+  every supplied tag unchanged. Authoring conventions do not narrow syntax
   acceptance.
 - In MDG, put each tag in its own backtick span immediately above the tagged
   heading. In native Gherkin, use bare tags. Reserve `@openspec-*` and `@mdg-*`
@@ -81,20 +79,20 @@ These examples apply the canonical contract to their own domains.
 
 ### Keep table and argument values intact
 
-Indent Markdown table rows by two spaces. In MDG, put data rows directly after
-the header, without a separator row; the converter emits this canonical form.
-OpenSpec tables retain their Markdown separator row. The pinned MDG parser
-accepts either input form and preserves the interpreted rows; table formatting
-must not change Examples cases or Data Table values. Plain Gherkin also omits
-separators. Use `\|` for a literal pipe, `\\` for a literal backslash,
-and `\n` for a newline inside a cell. Do not apply cell escaping to Doc Strings.
+Write each Markdown table as an indented header, one separator row with a `---`
+cell per column, and indented data rows, each line indented by two spaces. This
+is the canonical form the converter emits for MDG and OpenSpec; plain Gherkin
+omits the separator. The pinned MDG parser treats the separator as formatting
+and also accepts MDG tables without it, so table formatting must not change
+Examples cases or Data Table values. Use `\|` for a literal pipe, `\\` for a
+literal backslash, and `\n` for a newline inside a cell. Do not apply cell
+escaping to Doc Strings.
 
 Keep a Markdown Doc String in a triple-backtick block indented by two spaces
 under its step; put its optional media type immediately after the opening fence.
 Preserve the content's indentation relative to the fence. In an outline, each
 `<placeholder>` names an Examples column; retain every intended data row and
-verify the expanded cases. The account example demonstrates two separate
-Examples groups and a JSON Doc String containing a placeholder.
+verify the expanded cases.
 
 ## Convert and verify
 

@@ -111,7 +111,6 @@ try {
 
   for (const [name, expectedCount] of [
     ['minimal', 1],
-    ['account', 5],
     ['authentication-delta', 2],
   ]) {
     const source = path.join(

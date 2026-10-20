@@ -214,8 +214,59 @@ describe('OpenSpec syntax reader', () => {
   })
 })
 
+describe('canonical MDG tables carry one separator row', () => {
+  const outline = (separator: boolean) => `# Feature: Cart quantities
+
+Keep requested quantities when products are added.
+
+## Rule: Added products keep their quantity
+
+The cart SHALL contain the requested quantity of each added product.
+
+### Scenario Outline: Keep the quantity of product \`<product>\`
+
+* Given the catalog contains:
+  | product | price |${separator ? '\n  | --- | --- |' : ''}
+  | P-7 | 4\\|5 |
+* When the customer adds \`<requested>\` units of \`<product>\`
+* Then the cart contains \`<expected>\` units of \`<product>\`
+
+#### Examples: Requested quantities
+
+  | product | requested | expected |${separator ? '\n  | :---: | --- | ---: |' : ''}
+  | P-7 | 2 | 2 |
+  | P-7 | 0 | 0 |
+`
+
+  test('separator-bearing and separator-free MDG converge on the same canonical output', async () => {
+    const [withSeparators, withoutSeparators] = [outline(true), outline(false)]
+    expect(mdgModel(withSeparators)).toEqual(mdgModel(withoutSeparators))
+    const opsx = await mdgToOpsx(withSeparators)
+    expect(await mdgToOpsx(withoutSeparators)).toBe(opsx)
+    const mdg = await opsxToMdg(opsx)
+    expect(await opsxToMdg(await mdgToOpsx(withoutSeparators))).toBe(mdg)
+    for (const canonical of [opsx, mdg]) {
+      expect(canonical).toContain('  | product | price |\n  | --- | --- |\n  | P-7 | 4\\|5 |')
+      expect(canonical).toContain(
+        '  | product | requested | expected |\n  | --- | --- | --- |\n  | P-7 | 2 | 2 |\n  | P-7 | 0 | 0 |',
+      )
+    }
+    const [rule] = mdgModel(mdg).rules
+    expect(rule.scenarios[0].steps[0].table).toEqual([
+      ['product', 'price'],
+      ['P-7', '4|5'],
+    ])
+    expect(rule.scenarios[0].examples[0].rows).toEqual([
+      ['product', 'requested', 'expected'],
+      ['P-7', '2', '2'],
+      ['P-7', '0', '0'],
+    ])
+    expect(await opsxToFeature(opsx)).not.toMatch(/\|\s*:?-+:?\s*\|/)
+  })
+})
+
 describe('supplied tags are preserved as metadata', () => {
-  test.each(['', '@skill', '@prompt', '@plugin', '@ai', '@code'])(
+  test.each(['', '@smoke', '@billing', '@wip', '@release-2'])(
     'preserves compatible %j tags and plain scenarios in every direction',
     async (tag) => {
       const warn = vi.spyOn(console, 'warn')

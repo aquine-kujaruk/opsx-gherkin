@@ -15,4 +15,5 @@ The cart SHALL contain the selected quantity of a product after the customer add
 #### Examples: Selected quantity
 
   | productId | requestedQuantity | expectedQuantity |
+  | --- | --- | --- |
   | P-7 | 2 | 2 |

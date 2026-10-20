@@ -24,7 +24,7 @@ export function pushDescriptionAndSteps(
   for (const step of node.steps) {
     const keyword = mdg ? titleCase(step.keyword) : `**${step.keyword}**`
     output.push(`${mdg ? '*' : '-'} ${keyword} ${step.text}`)
-    if (step.table) pushTable(output, step.table, false, !mdg)
+    if (step.table) pushTable(output, step.table, false)
     if (step.docString) {
       output.push('', `  \`\`\`${step.docString.mediaType || ''}`)
       for (const line of step.docString.content.split('\n')) output.push(`  ${line}`)

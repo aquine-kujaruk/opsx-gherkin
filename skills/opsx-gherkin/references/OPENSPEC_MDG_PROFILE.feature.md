@@ -165,7 +165,7 @@ The converter SHALL map a Gherkin Feature to an OpenSpec title and Purpose, and 
 
 ## Rule: Preserve behavioral Gherkin constructs
 
-The converter SHALL preserve Scenario and Scenario Outline structure, typed steps, tags, Examples, Data Tables, and Doc Strings without treating them as opaque prose.
+The converter SHALL preserve Scenario and Scenario Outline structure, typed steps, tags, Examples, Data Tables, and Doc Strings without treating them as opaque prose. An inline HTML comment inside a step's text is step text and SHALL be preserved verbatim.
 
 Canonical MDG and OpenSpec tables SHALL carry one Markdown separator row directly after their indented header; canonical plain Gherkin tables SHALL omit it. Compatible MDG inputs with or without separators SHALL preserve the same interpreted rows and values.
 
@@ -229,6 +229,21 @@ Canonical MDG and OpenSpec tables SHALL carry one Markdown separator row directl
   | --- | --- |
   | MDG | OpenSpec |
   | OpenSpec | MDG |
+
+### Scenario Outline: Preserve an inline step comment in `<target_format>`
+
+* Given a compatible `<source_format>` main spec or delta whose step text ends with an inline HTML comment such as `<!-- addUnits -->`
+* When it is converted to `<target_format>`
+* Then the step text, including the comment, is unchanged
+* And the converter attaches no meaning to the comment
+
+#### Examples: Comment conversion directions
+
+  | source_format | target_format |
+  | --- | --- |
+  | OpenSpec | MDG |
+  | MDG | OpenSpec |
+  | OpenSpec | plain Gherkin |
 
 ## Rule: Project OpenSpec to a plain Gherkin feature
 

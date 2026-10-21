@@ -115,6 +115,10 @@ test('the skill and contract state the specification language and only syntax gu
   for (const removed of ['use case', 'independent roles', 'without a separator row', 'account.'])
     expect(entry).not.toContain(removed)
   expect(prose(entry)).toContain('one separator row')
+  expect(prose(entry)).toContain(
+    'An HTML comment at the end of a step is step text: every conversion preserves it verbatim, ' +
+      'and it has no meaning to the converter.',
+  )
 })
 
 test('the copied skill resolves all document references inside its own bundle', async () => {

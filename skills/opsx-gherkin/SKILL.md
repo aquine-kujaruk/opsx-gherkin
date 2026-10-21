@@ -69,6 +69,8 @@ These examples apply the canonical contract to their own domains.
   and none is required: a new document may omit them, but conversion preserves
   every supplied tag unchanged. Authoring conventions do not narrow syntax
   acceptance.
+- An HTML comment at the end of a step is step text: every conversion
+  preserves it verbatim, and it has no meaning to the converter.
 - In MDG, put each tag in its own backtick span immediately above the tagged
   heading. In native Gherkin, use bare tags. Reserve `@openspec-*` and `@mdg-*`
   names for the structural roles defined by the contract.

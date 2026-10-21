@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/aquine-kujaruk/opsx-gherkin/compare/v2.0.0...v2.0.1) (2026-10-21)
+
+
+### Bug Fixes
+
+* **skill:** state that inline step comments are preserved step text ([7e49eae](https://github.com/aquine-kujaruk/opsx-gherkin/commit/7e49eae1fe3beb7049f7817ce84309e216ea1745))
+
 # [2.0.0](https://github.com/aquine-kujaruk/opsx-gherkin/compare/v1.0.1...v2.0.0) (2026-10-20)
 
 

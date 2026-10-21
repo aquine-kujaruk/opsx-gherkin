@@ -144,6 +144,33 @@ test('all four OpenSpec delta operations round-trip canonically', async () => {
     assert.match(mdg, new RegExp(`@openspec-${tag}`))
 })
 
+test('inline step comments survive every conversion of a main spec and a delta', () => {
+  const run = (command: string, text: string) => {
+    const result = spawnSync(
+      process.execPath,
+      [join(root, `dist/${command}.mjs`), '--text', text, '--name', 'inventory'],
+      { encoding: 'utf8' },
+    )
+    assert.equal(result.status, 0, result.stderr)
+    assert.equal(result.stderr, '')
+    return result.stdout
+  }
+  const comments = ['<!-- unitsInStock -->', '<!-- addUnits -->', '<!-- stockIs -->']
+  const assertComments = (output: string) => {
+    for (const comment of comments) assert.match(output, new RegExp(`\\S ${comment}$`, 'm'))
+  }
+
+  for (const source of [commentedMainOpsx, commentedDeltaOpsx]) {
+    const mdg = run('opsx-to-mdg', source)
+    assertComments(mdg)
+    assertComments(run('opsx-to-feature', source))
+    assert.equal(run('mdg-to-opsx', mdg), source)
+  }
+  const deltaFeature = run('opsx-to-feature', commentedDeltaOpsx)
+  for (const tag of ['delta', 'added', 'modified'])
+    assert.match(deltaFeature, new RegExp(`@openspec-${tag}`))
+})
+
 test('undefined profile mappings are rejected without output', () => {
   const result = spawnSync(
     process.execPath,
@@ -248,4 +275,51 @@ The system SHALL reject an incorrect password.
 
 FROM: \`### Requirement: Login audit\`
 TO: \`### Requirement: Authentication audit\`
+`
+
+const commentedMainOpsx = `# inventory Specification
+
+## Purpose
+
+Track the stock level of each product as units are received and reported.
+
+## Requirements
+
+### Requirement: Receive stock
+
+The system SHALL add received units to the product stock.
+
+#### Scenario: Receive units
+
+- **GIVEN** the product has 3 units in stock <!-- unitsInStock -->
+- **WHEN** 2 units are received <!-- addUnits -->
+- **THEN** the product has 5 units in stock <!-- stockIs -->
+`
+
+const commentedDeltaOpsx = `\`@openspec-delta\`
+# inventory
+
+## ADDED Requirements
+
+### Requirement: Receive stock
+
+The system SHALL add received units to the product stock.
+
+#### Scenario: Receive units
+
+- **GIVEN** the product has 3 units in stock <!-- unitsInStock -->
+- **WHEN** 2 units are received <!-- addUnits -->
+- **THEN** the product has 5 units in stock <!-- stockIs -->
+
+## MODIFIED Requirements
+
+### Requirement: Report stock
+
+The system SHALL report the current stock of a product.
+
+#### Scenario: Report units
+
+- **GIVEN** the product has 3 units in stock <!-- unitsInStock -->
+- **WHEN** the stock is requested <!-- requestStock -->
+- **THEN** the product has 3 units in stock <!-- stockIs -->
 `

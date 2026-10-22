@@ -121,6 +121,29 @@ test('the skill and contract state the specification language and only syntax gu
   )
 })
 
+test('the skill streams derived Gherkin and warns about de-indenting formatters', async () => {
+  const entry = await readFile(join(skill, 'SKILL.md'), 'utf8')
+  const prose = (text: string) => text.replace(/\s+/g, ' ')
+  expect(prose(entry)).toContain(
+    'A Gherkin rendering of it (`.feature`, `.feature.md`) is derived and exists only as a ' +
+      'stream: convert to stdout and pipe the result into its consumer. Never write the ' +
+      'rendering next to the spec or anywhere else in the working tree;',
+  )
+  expect(entry).toContain(
+    'opsx-gherkin opsx-to-feature spec.md | validate-spec --format feature /dev/stdin',
+  )
+  const section = entry.slice(entry.indexOf('## Convert and verify'))
+  const blocks = [...section.matchAll(/```sh\n([\s\S]*?)```/g)].map((match) => match[1])
+  expect(blocks[0].split('\n')[0]).toContain(' | ')
+  const outputLines = [...entry.matchAll(/```sh\n([\s\S]*?)```/g)]
+    .flatMap((match) => match[1].split('\n'))
+    .filter((line) => /\s-o\s/.test(line))
+  expect(outputLines).toEqual(['opsx-gherkin mdg-to-opsx input.feature.md -o spec.md'])
+  expect(entry).toContain('`Examples "<heading>" has no table`')
+  expect(entry).toContain('`openspec/**`')
+  expect(entry).not.toMatch(/feat2test/i)
+})
+
 test('the copied skill resolves all document references inside its own bundle', async () => {
   const temporary = await mkdtemp(join(tmpdir(), 'opsx-skill-test-'))
   try {

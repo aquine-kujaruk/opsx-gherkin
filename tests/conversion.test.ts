@@ -171,6 +171,23 @@ test('inline step comments survive every conversion of a main spec and a delta',
     assert.match(deltaFeature, new RegExp(`@openspec-${tag}`))
 })
 
+test('an OpenSpec Examples table without row indentation is rejected', async () => {
+  const source = await readFile(
+    join(root, 'skills/opsx-gherkin/references/examples/minimal.openspec.md'),
+    'utf8',
+  )
+  const dedented = source.replace(/^ {2}\|/gm, '|')
+  assert.notEqual(dedented, source)
+  const result = spawnSync(
+    process.execPath,
+    [join(root, 'dist/opsx-to-feature.mjs'), '--text', dedented, '--name', 'cart'],
+    { encoding: 'utf8' },
+  )
+  assert.equal(result.status, 1)
+  assert.equal(result.stdout, '')
+  assert.match(result.stderr, /Examples "Examples: Selected quantity" has no table/)
+})
+
 test('undefined profile mappings are rejected without output', () => {
   const result = spawnSync(
     process.execPath,

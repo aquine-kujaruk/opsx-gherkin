@@ -90,6 +90,12 @@ Examples cases or Data Table values. Use `\|` for a literal pipe, `\\` for a
 literal backslash, and `\n` for a newline inside a cell. Do not apply cell
 escaping to Doc Strings.
 
+A Markdown table is a Gherkin table only while every row keeps its two-space
+indentation. A project Markdown formatter, such as oxfmt or prettier, removes it,
+and conversion then fails with `Examples "<heading>" has no table`, while
+`validate-spec --format openspec` can still accept the file. Exclude
+`openspec/**` from formatting before the first conversion.
+
 Keep a Markdown Doc String in a triple-backtick block indented by two spaces
 under its step; put its optional media type immediately after the opening fence.
 Preserve the content's indentation relative to the fence. In an outline, each
@@ -98,15 +104,25 @@ verify the expanded cases.
 
 ## Convert and verify
 
-Each converter accepts one path, `--text`, or stdin. Use stdout to inspect a
-result; use `-o <destination>` for an explicit output file. Existing outputs
-require `--force`. Respect the user's destination and overwrite intent.
+When an OpenSpec spec exists, it is the source. A Gherkin rendering of it
+(`.feature`, `.feature.md`) is derived and exists only as a stream: convert to
+stdout and pipe the result into its consumer. Never write the rendering next to
+the spec or anywhere else in the working tree; a copy drifts as soon as the spec
+changes. Use `-o <destination>` only to author a spec from Markdown with Gherkin
+the user supplied (`mdg-to-opsx`), or for a rendering the user explicitly asked
+for by name and destination. Existing outputs require `--force`. Respect the
+user's destination and overwrite intent.
 
 ```sh
+opsx-gherkin opsx-to-feature spec.md | <consumer> --stdin
+opsx-gherkin opsx-to-mdg spec.md | <consumer> --stdin
 opsx-gherkin mdg-to-opsx input.feature.md -o spec.md
-opsx-gherkin opsx-to-mdg spec.md -o output.feature.md
-opsx-gherkin opsx-to-feature spec.md -o output.feature
 ```
+
+Each converter accepts one path, `--text`, or stdin. Read the consumer's own
+help for how it takes standard input. If conversion reports that an Examples
+group has no table, see the formatter caveat under "Keep table and argument
+values intact".
 
 Use `--name` when OpenSpec text has no title or usable source-path context.
 `--project-root` supplies existing main-spec context for delta validation when
@@ -124,7 +140,7 @@ checks model preservation.
 ```sh
 validate-spec --format openspec spec.md
 validate-spec --format mdg input.feature.md
-validate-spec --format feature output.feature
+opsx-gherkin opsx-to-feature spec.md | validate-spec --format feature /dev/stdin
 ```
 
 Passing these checks establishes example syntax and conversion preservation.

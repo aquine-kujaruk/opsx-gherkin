@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/aquine-kujaruk/opsx-gherkin/compare/v2.0.1...v2.0.2) (2026-10-22)
+
+
+### Bug Fixes
+
+* **skill:** update SKILL.md to clarify Gherkin table formatting and conversion requirements ([377026d](https://github.com/aquine-kujaruk/opsx-gherkin/commit/377026dea6a581beeba23cdbebded59e505555db))
+
 ## [2.0.1](https://github.com/aquine-kujaruk/opsx-gherkin/compare/v2.0.0...v2.0.1) (2026-10-21)
 
 
